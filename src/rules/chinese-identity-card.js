@@ -61,7 +61,7 @@ export default {
   /**
    * 检查身份证号码是否合法
    *
-   * @param {String} number
+   * @param {string} number
    *    身份证号码，必须是trim()后的值，此函数不做trim()
    * @return {Boolean}
    *    若该身份证号码合法，返回true；否则返回false
@@ -74,10 +74,11 @@ export default {
   /**
    * 根据身份证号码计算性别
    *
-   * @param {String} number
-   *    身份证号码，必须是trim()后的值，此函数不做trim()
-   * @return {String}
-   *    若该身份证号码合法，返回对应的性别；否则返回null.
+   * @param {string} number
+   *    身份证号码，必须是trim()后的值，此函数不做trim().
+   * @return {string|null}
+   *     从给定的身份证号码中提取出的性别，表示为字符串`'MALE'`或`'FEMALE'`。如果无法提取，
+   *     则返回`null`。
    * @author 胡海星
    */
   getGender(number) {
@@ -89,11 +90,11 @@ export default {
    *
    * 注意此函数不验证给定的身份证号码是否合法，也不验证提取出的出生日期是否合法。
    *
-   * @param {String} number
+   * @param {string} number
    *    身份证号码，必须是trim()后的值，此函数不做trim()
-   * @return {String}
+   * @return {string|null}
    *    返回该身份证号码对应的出生日期，以字符串形式表示，格式为'YYYY-MM-DD'；
-   *    如身份证号码长度不对，则返回null。
+   *    如身份证号码长度不对，则返回`null`。
    * @author 胡海星
    */
   getBirthday(number) {

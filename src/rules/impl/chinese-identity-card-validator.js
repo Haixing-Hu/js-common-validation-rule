@@ -6,7 +6,7 @@
 //    All rights reserved.
 //
 ////////////////////////////////////////////////////////////////////////////////
-import isString from './is-string';
+import isstring from './is-string';
 import AREA_CODES from './china-area-codes';
 
 const NUMBER_LENGTH = 18;
@@ -32,7 +32,7 @@ const LAST_CHAR = [
 /**
  * 将给定的身份证号码给定的片段解析为整数。
  *
- * @param {String} number
+ * @param {string} number
  *     给定的身份证号码。
  * @param {Number} start
  *     起始位置。
@@ -68,7 +68,7 @@ function parseNumber(number, start, end) {
  * 出生日期是否是个合法的日期，同时也会验证该日期是否超过今天的日期（不应该超过
  * 今天的日期）。
  *
- * @param {String} number
+ * @param {string} number
  *     给定的身份证号码。
  * @return {Boolean}
  *     若给定的身份证号码的生日字段合法，则返回true；否则返回false。
@@ -104,7 +104,7 @@ function isIdCardBirthdayValid(number) {
  * 区代码。如果行政区划进行了重新划分，同一个地方进行户口登记的可能存在地址码不
  * 一致的情况。行政区划代码按GB/T2260的规定执行。
  *
- * @param {String} number
+ * @param {string} number
  *     给定的身份证号码。
  * @return {Boolean}
  *     若给定的身份证号码的地址区县字段合法，则返回true；否则返回false。
@@ -143,14 +143,14 @@ function isIdCardAreaValid(number) {
  * 通过上面得知如果余数是2，就会在身份证的第18位数字上出现罗马数字的Ⅹ。
  * 如果余数是10，身份证的最后一位号码就是2。
  *
- * @param {String} number
+ * @param {string} number
  *     给定的身份证号码。
  * @return {Boolean}
  *     若给定的身份证号码合法，则返回true；否则返回false。
  * @author 胡海星
  */
 export function isIdCardNumberValid(number) {
-  if (!isString(number)) {
+  if (!isstring(number)) {
     return false;
   }
   if (number.length !== NUMBER_LENGTH) {
@@ -189,11 +189,11 @@ export function isIdCardNumberValid(number) {
  *
  * 注意此函数不验证给定的身份证号码是否合法，也不验证提取出的出生日期是否合法。
  *
- * @param {String} number
+ * @param {string} number
  *     给定的身份证号码。
- * @return {String}
+ * @return {string|null}
  *     从给定的身份证号码中提取出的出生日期，表示为'YYYY-MM-DD'格式的字符串。如
- *     果无法提取，则返回null。
+ *     果无法提取，则返回`null`。
  */
 export function getIdCardBirthday(number) {
   if ((typeof number !== 'string') || (number.length !== NUMBER_LENGTH)) {
@@ -210,11 +210,11 @@ export function getIdCardBirthday(number) {
  *
  * 注意此函数不验证给定的身份证号码是否合法。
  *
- * @param {String} number
+ * @param {string} number
  *     给定的身份证号码。
- * @return {String}
- *     从给定的身份证号码中提取出的性别，表示为Gender枚举的值。如果无法提取，则
- *     返回null。
+ * @return {string|null}
+ *     从给定的身份证号码中提取出的性别，表示为字符串`'MALE'`或`'FEMALE'`。如果无法提取，则
+ *     返回`null`。
  */
 export function getIdCardGender(number) {
   if ((typeof number !== 'string') || (number.length !== NUMBER_LENGTH)) {
