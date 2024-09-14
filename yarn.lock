@@ -1495,6 +1495,8 @@ __metadata:
     rollup: "npm:^4.1.3"
     rollup-plugin-analyzer: "npm:^4.0.0"
     rollup-plugin-visualizer: "npm:^5.12.0"
+  peerDependencies:
+    "@babel/runtime": ^7.23.0
   languageName: unknown
   linkType: soft
 
