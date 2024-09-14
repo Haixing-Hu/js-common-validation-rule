@@ -6,44 +6,44 @@
 //    All rights reserved.
 //
 ////////////////////////////////////////////////////////////////////////////////
+import AlphaNumberRule from './rules/alpha-number';
+import BoolRule from './rules/bool';
+import ChinaIdentityCardRule from './rules/china-identity-card';
+import ChinaMobileRule from './rules/china-mobile';
+import ChinaOfficerCardRule from './rules/china-officer-card';
+import ChinaPassportRule from './rules/china-passport';
+import ChinaPhoneRule from './rules/china-phone';
+import EmailRule from './rules/email';
+import IntegerRule from './rules/integer';
+import LocalDateRule from './rules/local-date';
+import NumberRule from './rules/number';
+import NumericRule from './rules/numeric';
+import OtherCredentialRule from './rules/other-credential';
+import PersonNameRule from './rules/person-name';
+import TimestampRule from './rules/timestamp';
+import UppercaseAlphaNumberRule from './rules/uppercase-alpha-number';
+import UrlRule from './rules/url';
 import ValidationResult from './validation-result';
-import AlphaNumber from './rules/alpha-number';
-import Bool from './rules/bool';
-import Email from './rules/email';
-import Float from './rules/float';
-import ChineseIdentityCard from './rules/chinese-identity-card';
-import Integer from './rules/integer';
-import Number from './rules/number';
-import LocalDate from './rules/local-date';
-import Mobile from './rules/mobile';
-import ChineseOfficerCard from './rules/chinese-officer-card';
-import OtherCredential from './rules/other-credential';
-import ChinesePassport from './rules/chinese-passport';
-import PersonName from './rules/person-name';
-import Phone from './rules/phone';
-import Timestamp from './rules/timestamp';
-import UppercaseAlphaNumber from './rules/uppercase-alpha-number';
-import Url from './rules/url';
-import VerifyCode from './rules/verify-code';
+import VerifyCodeRule from './rules/verify-code';
 
 export {
+  AlphaNumberRule,
+  BoolRule,
+  ChinaIdentityCardRule,
+  ChinaMobileRule,
+  ChinaOfficerCardRule,
+  ChinaPassportRule,
+  ChinaPhoneRule,
+  EmailRule,
+  IntegerRule,
+  LocalDateRule,
+  NumberRule,
+  NumericRule,
+  OtherCredentialRule,
+  PersonNameRule,
+  TimestampRule,
+  UppercaseAlphaNumberRule,
+  UrlRule,
   ValidationResult,
-  AlphaNumber,
-  Bool,
-  Email,
-  Float,
-  ChineseIdentityCard,
-  Integer,
-  Number,
-  LocalDate,
-  Mobile,
-  ChineseOfficerCard,
-  OtherCredential,
-  ChinesePassport,
-  PersonName,
-  Phone,
-  Timestamp,
-  UppercaseAlphaNumber,
-  Url,
-  VerifyCode,
+  VerifyCodeRule,
 };

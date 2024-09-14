@@ -6,7 +6,6 @@
 //    All rights reserved.
 //
 ////////////////////////////////////////////////////////////////////////////////
-import isstring from './is-string';
 import AREA_CODES from './china-area-codes';
 
 const NUMBER_LENGTH = 18;
@@ -150,35 +149,36 @@ function isIdCardAreaValid(number) {
  * @author 胡海星
  */
 export function isIdCardNumberValid(number) {
-  if (!isstring(number)) {
-    return false;
-  }
-  if (number.length !== NUMBER_LENGTH) {
-    return false;
-  }
-  // 验证奇偶校验码是否合法
-  let sum = 0;
-  for (let i = 0; i < NUMBER_LENGTH - 1; ++i) {
-    const ch = number.charCodeAt(i);
-    if (ch < ASCII_0_CHAR_CODE || ch > ASCII_9_CHAR_CODE) {
+  if ((typeof number === 'string') || (number instanceof String)) {
+    if (number.length !== NUMBER_LENGTH) {
       return false;
     }
-    sum += (ch - ASCII_0_CHAR_CODE) * RATIO[i];
-  }
-  const lastChar = LAST_CHAR[sum % LAST_CHAR.length];
-  if (number.charAt(NUMBER_LENGTH - 1).toUpperCase() !== lastChar) {
+    // 验证奇偶校验码是否合法
+    let sum = 0;
+    for (let i = 0; i < NUMBER_LENGTH - 1; ++i) {
+      const ch = number.charCodeAt(i);
+      if (ch < ASCII_0_CHAR_CODE || ch > ASCII_9_CHAR_CODE) {
+        return false;
+      }
+      sum += (ch - ASCII_0_CHAR_CODE) * RATIO[i];
+    }
+    const lastChar = LAST_CHAR[sum % LAST_CHAR.length];
+    if (number.charAt(NUMBER_LENGTH - 1).toUpperCase() !== lastChar) {
+      return false;
+    }
+    // 验证出生日期是否合法
+    if (!isIdCardBirthdayValid(number)) {
+      return false;
+    }
+    // 验证地址区县是否合法
+    // 暂时屏蔽区号验证
+    // if (!isIdCardAreaValid(number)) {
+    //   return false;
+    // }
+    return true;
+  } else {
     return false;
   }
-  // 验证出生日期是否合法
-  if (!isIdCardBirthdayValid(number)) {
-    return false;
-  }
-  // 验证地址区县是否合法
-  // 暂时屏蔽区号验证
-  // if (!isIdCardAreaValid(number)) {
-  //   return false;
-  // }
-  return true;
 }
 
 /**
@@ -196,13 +196,17 @@ export function isIdCardNumberValid(number) {
  *     果无法提取，则返回`null`。
  */
 export function getIdCardBirthday(number) {
-  if ((typeof number !== 'string') || (number.length !== NUMBER_LENGTH)) {
+  if ((typeof number === 'string') || (number instanceof String)) {
+    if (number.length !== NUMBER_LENGTH) {
+      return null;
+    }
+    const year = number.substring(YEAR_INDEX, YEAR_INDEX + YEAR_LENGTH);
+    const month = number.substring(MONTH_INDEX, MONTH_INDEX + MONTH_LENGTH);
+    const day = number.substring(DAY_INDEX, DAY_INDEX + DAY_LENGTH);
+    return `${year}-${month}-${day}`;
+  } else {
     return null;
   }
-  const year = number.substring(YEAR_INDEX, YEAR_INDEX + YEAR_LENGTH);
-  const month = number.substring(MONTH_INDEX, MONTH_INDEX + MONTH_LENGTH);
-  const day = number.substring(DAY_INDEX, DAY_INDEX + DAY_LENGTH);
-  return `${year}-${month}-${day}`;
 }
 
 /**
@@ -217,9 +221,13 @@ export function getIdCardBirthday(number) {
  *     返回`null`。
  */
 export function getIdCardGender(number) {
-  if ((typeof number !== 'string') || (number.length !== NUMBER_LENGTH)) {
+  if ((typeof number === 'string') || (number instanceof String)) {
+    if (number.length !== NUMBER_LENGTH) {
+      return null;
+    }
+    const digit = number.charCodeAt(GENDER_INDEX) - ASCII_0_CHAR_CODE;
+    return (digit % 2 === 1 ? 'MALE' : 'FEMALE');
+  } else {
     return null;
   }
-  const digit = number.charCodeAt(GENDER_INDEX) - ASCII_0_CHAR_CODE;
-  return (digit % 2 === 1 ? 'MALE' : 'FEMALE');
 }

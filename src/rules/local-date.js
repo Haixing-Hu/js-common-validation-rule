@@ -6,7 +6,6 @@
 //    All rights reserved.
 //
 ////////////////////////////////////////////////////////////////////////////////
-import isString from './impl/is-string';
 
 /**
  * The regular expression of a valid local date.
@@ -15,8 +14,13 @@ import isString from './impl/is-string';
  */
 const DATE_REGEXP = /^\s*[0-9]{4}-[0-9]{1,2}-[0-9]{1,2}\s*$/;
 
-export default {
-
+/**
+ * The validation rule of local date values.
+ *
+ * @type {object}
+ * @author Haixing Hu
+ */
+const LocalDateRule = {
   /**
    * Tests whether a value represents a valid local date.
    *
@@ -31,18 +35,19 @@ export default {
    * @param {any} value
    *    The value to be tested. It could be a string primitive, a built-in
    *    `String` object, or a built-in `Date` object.
-   * @return
+   * @return {boolean}
    *    `true` if the value represents a valid local date; `false` otherwise.
    * @author Haixing Hu
    */
   isValid(value) {
     if (value instanceof Date) {
       return true;
-    }
-    if (isString(value)) {
+    } else if ((typeof value === 'string') || (value instanceof String)) {
       return DATE_REGEXP.test(value.trim());
     } else {
       return false;
     }
   },
 };
+
+export default LocalDateRule;

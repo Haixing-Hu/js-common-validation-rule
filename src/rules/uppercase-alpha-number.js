@@ -6,7 +6,6 @@
 //    All rights reserved.
 //
 ////////////////////////////////////////////////////////////////////////////////
-import isString from './impl/is-string';
 
 /**
  * 验证字符串是否是数字和大写字母组合成字符串。
@@ -17,8 +16,13 @@ import isString from './impl/is-string';
  */
 const UPPERCASE_ALPHA_NUMBER_REGEXP = /^\s*[0-9A-Z]+\s*$/;
 
-export default {
-
+/**
+ * 数字和大写字母组合字符串验证规则。
+ *
+ * @type {object}
+ * @author 胡海星
+ */
+const UppercaseAlphaNumberRule = {
   /**
    * 测试一个字符串是否是数字和大写字母组合成字符串。
    *
@@ -26,17 +30,19 @@ export default {
    *
    * 注意此函数允许字符串首位出现空格。
    *
-   * @param {String} str
+   * @param {any} str
    *    待测试的字符串。
-   * @return
+   * @return {boolean}
    *    若该字符串是数字和大写字母组合成字符串则返回true；否则返回false。
    * @author 胡海星
    */
   isValid(str) {
-    if (isString(str)) {
+    if ((typeof str === 'string') || (str instanceof String)) {
       return UPPERCASE_ALPHA_NUMBER_REGEXP.test(str);
     } else {
       return false;
     }
   },
 };
+
+export default UppercaseAlphaNumberRule;

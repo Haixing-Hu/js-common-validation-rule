@@ -6,10 +6,9 @@
 //    All rights reserved.
 //
 ////////////////////////////////////////////////////////////////////////////////
-import isString from './impl/is-string';
 
 /**
- * 验证手机号码的正则表达式
+ * 验证中国手机号码的正则表达式
  *
  * - 手机号码可以以 "0", "86", "17951" 开头
  * - 手机号码一共11位数字
@@ -30,21 +29,27 @@ import isString from './impl/is-string';
  */
 const MOBILE_REGEXP = /^(0|86|17951)?(13[0-9]|14[5-9]|15[0-35-9]|16[5-6]|17[0-8]|18[0-9]|19[1589])[0-9]{8}$/;
 
-export default {
-
+/**
+ * 中国手机号码验证规则。
+ *
+ * @type {object}
+ * @author 胡海星
+ */
+const ChinaMobileRule = {
   /**
-   * 测试手机号码是否合法
+   * 测试中国手机号码是否合法
    *
-   * @param {in} mobile
+   * @param {any} mobile
    *    待测试的手机号码，注意必须先对其trim()，此函数不做trim()
-   * @return
+   * @return {boolean}
    *    若手机号码合法则返回true；否则返回false。
    * @author 胡海星
    */
   isValid(mobile) {
-    return isString(mobile)
+    return ((typeof mobile === 'string') || (mobile instanceof String))
         && (mobile.length !== 0)
         && MOBILE_REGEXP.test(mobile);
   },
-
 };
+
+export default ChinaMobileRule;

@@ -6,7 +6,6 @@
 //    All rights reserved.
 //
 ////////////////////////////////////////////////////////////////////////////////
-import isString from './impl/is-string';
 
 /**
  * 验证其他证件号码合法性的正则表达式。
@@ -20,24 +19,26 @@ const NUMBER_REGEXP = /^[a-zA-Z0-9.]{2,60}$/;
 /**
  * 其他证件号码验证规则。
  *
+ * @type {object}
  * @author 胡海星
  */
-export default {
-
+const OtherCredentialRule = {
   /**
    * 检查其他证件号码是否合法
    *
-   * @param {in} number
+   * @param {any} number
    *    证件号码，必须是trim()后的值，此函数不做trim()
-   * @return
+   * @return {boolean}
    *    若该证件号码合法，返回true；否则返回false
    * @author 胡海星
    */
   isValid(number) {
-    if (isString(number)) {
+    if ((typeof number === 'string') || (number instanceof String)) {
       return NUMBER_REGEXP.test(number);
     } else {
       return false;
     }
   },
 };
+
+export default OtherCredentialRule;

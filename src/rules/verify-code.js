@@ -6,7 +6,6 @@
 //    All rights reserved.
 //
 ////////////////////////////////////////////////////////////////////////////////
-import isString from './impl/is-string';
 
 /**
  * The default length of the verify code.
@@ -16,21 +15,12 @@ import isString from './impl/is-string';
 const DEFAULT_VERIFY_CODE_LENGTH = 6;
 
 /**
- * The character code of the digit '0'.
+ * The validation rule of verify codes.
  *
- * @type {number}
+ * @type {object}
+ * @author Haixing Hu
  */
-const CHAR_CODE_ZERO = '0'.charCodeAt(0);
-
-/**
- * The character code of the digit '9'.
- *
- * @type {number}
- */
-const CHAR_CODE_NINE = '9'.charCodeAt(0);
-
-export default {
-
+const VerifyCodeRule = {
   /**
    * Tests whether a string is a valid verify code.
    *
@@ -46,16 +36,21 @@ export default {
    * @author Haixing Hu
    */
   isValid(code, length = DEFAULT_VERIFY_CODE_LENGTH) {
-    if (isString(code) && (code.length === length)) {
+    if ((typeof code === 'string') || (code instanceof String)) {
       const n = code.length;
+      if (n !== length) {
+        return false;
+      }
       for (let i = 0; i < n; ++i) {
-        if ((code.charCodeAt(i) < CHAR_CODE_ZERO) || (code.charCodeAt(i) > CHAR_CODE_NINE)) {
+        if ((code.charCodeAt(i) < 48)     // 48 is the ASCII code of '0'
+          || (code.charCodeAt(i) > 57)) { // 57 is the ASCII code of '9'
           return false;
         }
       }
       return true;
-    } else {
-      return false;
     }
+    return false;
   },
 };
+
+export default VerifyCodeRule;

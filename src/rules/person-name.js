@@ -6,7 +6,6 @@
 //    All rights reserved.
 //
 ////////////////////////////////////////////////////////////////////////////////
-import isString from './impl/is-string';
 
 /**
  * 验证中文姓名的正则表达式
@@ -47,21 +46,27 @@ const CHINESE_NAME_REGEXP = /^[\u{4E00}-\u{9FEF}\u{3400}-\u{4DBF}\u{20000}-\u{2A
  */
 const ENGLISH_NAME_REGEXP = /^[a-zA-Z][a-zA-Z .]{0,58}[a-zA-Z]$/;
 
-export default {
-
+/**
+ * 中英文姓名验证规则。
+ *
+ * @type {object}
+ * @author 胡海星
+ */
+const PersonNameRule = {
   /**
-   * 测试姓名是否合法
+   * 测试中英文姓名是否合法
    *
-   * @param {in} name
+   * @param {any} name
    *    待测试的姓名，注意必须先对其trim()，此函数不做trim()
-   * @return
+   * @return {boolean}
    *    若姓名合法则返回true；否则返回false。
    * @author 胡海星
    */
   isValid(name) {
-    return isString(name)
+    return ((typeof name === 'string') || (name instanceof String))
         && (name.length !== 0)
-        && (CHINESE_NAME_REGEXP.test(name)
-         || ENGLISH_NAME_REGEXP.test(name));
+        && (CHINESE_NAME_REGEXP.test(name) || ENGLISH_NAME_REGEXP.test(name));
   },
 };
+
+export default PersonNameRule;

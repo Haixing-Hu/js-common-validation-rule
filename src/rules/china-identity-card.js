@@ -8,7 +8,7 @@
 ////////////////////////////////////////////////////////////////////////////////
 import {
   isIdCardNumberValid, getIdCardBirthday, getIdCardGender,
-} from './impl/chinese-identity-card-validator';
+} from './impl/china-identity-card-validator';
 
 /**
  * 中华人民共和国大陆身份证号码验证规则。
@@ -40,10 +40,10 @@ import {
  * 注意：对于身份证号码中编码的出生日期，此验证规则只验证该日期是否存在，没有验
  * 证出生日期的范围是否合法。
  *
+ * @type {object}
  * @author 胡海星
  */
-export default {
-
+const ChinaIdentityCardRule = {
   /**
    * 表示身份证的证件类型的字符串。
    *
@@ -61,9 +61,9 @@ export default {
   /**
    * 检查身份证号码是否合法
    *
-   * @param {string} number
+   * @param {any} number
    *    身份证号码，必须是trim()后的值，此函数不做trim()
-   * @return {Boolean}
+   * @return {boolean}
    *    若该身份证号码合法，返回true；否则返回false
    * @author 胡海星
    */
@@ -74,7 +74,7 @@ export default {
   /**
    * 根据身份证号码计算性别
    *
-   * @param {string} number
+   * @param {any} number
    *    身份证号码，必须是trim()后的值，此函数不做trim().
    * @return {string|null}
    *     从给定的身份证号码中提取出的性别，表示为字符串`'MALE'`或`'FEMALE'`。如果无法提取，
@@ -90,7 +90,7 @@ export default {
    *
    * 注意此函数不验证给定的身份证号码是否合法，也不验证提取出的出生日期是否合法。
    *
-   * @param {string} number
+   * @param {any} number
    *    身份证号码，必须是trim()后的值，此函数不做trim()
    * @return {string|null}
    *    返回该身份证号码对应的出生日期，以字符串形式表示，格式为'YYYY-MM-DD'；
@@ -101,3 +101,5 @@ export default {
     return getIdCardBirthday(number);
   },
 };
+
+export default ChinaIdentityCardRule;

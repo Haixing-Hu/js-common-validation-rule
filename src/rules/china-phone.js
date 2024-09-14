@@ -6,10 +6,8 @@
 //    All rights reserved.
 //
 ////////////////////////////////////////////////////////////////////////////////
-import isString from './impl/is-string';
-
 /**
- * 验证固定电话号码的正则表达式
+ * 验证中国固定电话号码的正则表达式
  *
  * - 国内固定电话和传真的格式基本都是带有0的区号+连接符“-”＋电话号码；
  * - 另外还有可能有分机号
@@ -26,21 +24,27 @@ import isString from './impl/is-string';
  */
 const PHONE_REGEXP = /^(^(\+?\d{2,4}[-_－—]?)?\d{3,8}([-_－—]?\d{3,8})?([-_－—]?\d{1,7})?$)|(^0?1[35]\d{9}$)$/;
 
-export default {
-
+/**
+ * 中国固定电话号码验证规则。
+ *
+ * @type {object}
+ * @author 胡海星
+ */
+const ChinaPhoneRule = {
   /**
-   * 测试固定电话号码是否合法
+   * 测试中国固定电话号码是否合法
    *
-   * @param {in} phone
+   * @param {any} phone
    *    待测试的固定电话号码，注意必须先对其trim()，此函数不做trim()
-   * @return
+   * @return {boolean}
    *    若固定电话号码合法则返回true；否则返回false。
    * @author 胡海星
    */
   isValid(phone) {
-    return isString(phone)
+    return ((typeof phone === 'string') || (phone instanceof String))
         && (phone.length !== 0)
         && PHONE_REGEXP.test(phone);
   },
-
 };
+
+export default ChinaPhoneRule;

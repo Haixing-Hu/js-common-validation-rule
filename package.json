@@ -1,6 +1,6 @@
 {
   "name": "@haixing_hu/common-validation-rule",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "A JavaScript ES6 library for common validation rules",
   "author": "Haixing Hu (starfish.hu@gmail.com)",
   "license": "Apache-2.0",
@@ -35,6 +35,9 @@
     "doc": "jsdoc -c jsdoc.json",
     "es5": "check-es-version -e 5 -s true",
     "deploy": "npm run && npm run lint && npm run test && npm run build:all && npm publish --registry='https://registry.npmjs.com/' --access public"
+  },
+  "peerDependencies": {
+    "@babel/runtime": "^7.23.0"
   },
   "dependencies": {
     "email-validator": "^2.0.4",

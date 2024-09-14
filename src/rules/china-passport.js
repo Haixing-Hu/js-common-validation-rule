@@ -6,7 +6,6 @@
 //    All rights reserved.
 //
 ////////////////////////////////////////////////////////////////////////////////
-import isString from './impl/is-string';
 
 /**
  * 验证中华人民共和国护照号码合法性的正则表达式。
@@ -40,9 +39,10 @@ const NUMBER_REGEXP = /^(E[A-Z0-9][0-9]{7}|[SDP]E[0-9]{7}|MA[0-9]{7}|K[0-9]{8}|1
 /**
  * 中华人民共和国护照号码验证规则。
  *
+ * @type {object}
  * @author 胡海星
  */
-export default {
+const ChinaPassportRule = {
 
   /**
    * 表示护照的证件类型的字符串。
@@ -61,17 +61,19 @@ export default {
   /**
    * 检查护照号码是否合法
    *
-   * @param {in} number
+   * @param {any} number
    *    护照号码，必须是trim()后的值，此函数不做trim()
-   * @return
+   * @return {boolean}
    *    若该护照号码合法，返回true；否则返回false
    * @author 胡海星
    */
   isValid(number) {
-    if (isString(number)) {
+    if ((typeof number === 'string') || (number instanceof String)) {
       return NUMBER_REGEXP.test(number);
     } else {
       return false;
     }
   },
 };
+
+export default ChinaPassportRule;

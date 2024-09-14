@@ -7,10 +7,14 @@
 //
 ////////////////////////////////////////////////////////////////////////////////
 import uri from 'node-uri';
-import isString from './impl/is-string';
 
-export default {
-
+/**
+ * URL地址验证规则。
+ *
+ * @type {object}
+ * @author 胡海星
+ */
+const UrlRule = {
   /**
    * 测试URL是否是合法的网址。
    *
@@ -23,14 +27,20 @@ export default {
    * @author 胡海星
    */
   isValid(url) {
-    if (!isString(url) || (url.length === 0)) {
-      return false;
-    }
-    try {
-      uri.checkWebURL(url);
-      return true;
-    } catch (URIError) {
+    if ((typeof url === 'string') || (url instanceof String)) {
+      if (url.length === 0) {
+        return false;
+      }
+      try {
+        uri.checkWebURL(url);
+        return true;
+      } catch (URIError) {
+        return false;
+      }
+    } else {
       return false;
     }
   },
 };
+
+export default UrlRule;

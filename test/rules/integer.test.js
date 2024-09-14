@@ -6,72 +6,84 @@
 //    All rights reserved.
 //
 ////////////////////////////////////////////////////////////////////////////////
-import { Integer } from '../../src';
+import { IntegerRule } from '../../src';
 
 /**
- * 单元测试{@link Integer.isValid}。
+ * 单元测试{@link IntegerRule.isValid}。
  *
  * @author 胡海星
  */
-describe('Integer.isValid()', () => {
+describe('IntegerRule.isValid()', () => {
   test('undefined', () => {
-    const str = undefined;
-    expect(Integer.isValid(str)).toBe(false);
+    const value = undefined;
+    expect(IntegerRule.isValid(value)).toBe(false);
   });
   test('null', () => {
-    const str = null;
-    expect(Integer.isValid(str)).toBe(false);
+    const value = null;
+    expect(IntegerRule.isValid(value)).toBe(false);
   });
-  test('empty string', () => {
-    const str = '';
-    expect(Integer.isValid(str)).toBe(false);
+  test('empty valueing', () => {
+    const value = '';
+    expect(IntegerRule.isValid(value)).toBe(false);
   });
-  test('non string', () => {
-    const str = 123;
-    expect(Integer.isValid(str)).toBe(false);
+  test('integer number', () => {
+    const value = 123;
+    expect(IntegerRule.isValid(value)).toBe(true);
+  });
+  test('bigint', () => {
+    const value = 123n;
+    expect(IntegerRule.isValid(value)).toBe(true);
+  });
+  test('float number', () => {
+    const value = 123.12;
+    expect(IntegerRule.isValid(value)).toBe(false);
+  });
+  test(' boolean ', () => {
+    const value = true;
+    expect(IntegerRule.isValid(value)).toBe(false);
   });
   test('"123 "', () => {
-    const str = '123';
-    expect(Integer.isValid(str)).toBe(true);
+    const value = '123';
+    expect(IntegerRule.isValid(value)).toBe(true);
   });
   test('"123. "', () => {
-    const str = '123. ';
-    expect(Integer.isValid(str)).toBe(false);
+    const value = '123. ';
+    expect(IntegerRule.isValid(value)).toBe(false);
   });
   test('"  +123 "', () => {
-    const str = '  +123 ';
-    expect(Integer.isValid(str)).toBe(true);
+    const value = '  +123 ';
+    expect(IntegerRule.isValid(value)).toBe(true);
   });
   test('"  -123"', () => {
-    const str = '  -123';
-    expect(Integer.isValid(str)).toBe(true);
+    const value = '  -123';
+    expect(IntegerRule.isValid(value)).toBe(true);
   });
   test('"+"', () => {
-    const str = '+';
-    expect(Integer.isValid(str)).toBe(false);
+    const value = '+';
+    expect(IntegerRule.isValid(value)).toBe(false);
   });
   test('"-"', () => {
-    const str = '-';
-    expect(Integer.isValid(str)).toBe(false);
+    const value = '-';
+    expect(IntegerRule.isValid(value)).toBe(false);
   });
   test('"12a3  "', () => {
-    const str = '12a3  ';
-    expect(Integer.isValid(str)).toBe(false);
+    const value = '12a3  ';
+    expect(IntegerRule.isValid(value)).toBe(false);
   });
   test('  #123', () => {
-    const str = '  #123';
-    expect(Integer.isValid(str)).toBe(false);
+    const value = '  #123';
+    expect(IntegerRule.isValid(value)).toBe(false);
   });
   test('"  12039485897233498274329483948310984321094732198574634598430958"', () => {
-    const str = '  12039485897233498274329483948310984321094732198574634598430958';
-    expect(Integer.isValid(str)).toBe(true);
+    const value = '  12039485897233498274329483948310984321094732198574634598430958';
+    expect(IntegerRule.isValid(value)).toBe(true);
   });
   test('" -12039485897233498274329483948310984321094732198574634598430958"', () => {
-    const str = ' -12039485897233498274329483948310984321094732198574634598430958';
-    expect(Integer.isValid(str)).toBe(true);
+    const value = ' -12039485897233498274329483948310984321094732198574634598430958';
+    expect(IntegerRule.isValid(value)).toBe(true);
   });
   test(' - 12039485897233498274329483948310984321094732198574634598430958', () => {
-    const str = ' - 12039485897233498274329483948310984321094732198574634598430958';
-    expect(Integer.isValid(str)).toBe(false);
+    const value = ' - 12039485897233498274329483948310984321094732198574634598430958';
+    expect(IntegerRule.isValid(value)).toBe(false);
   });
 });
