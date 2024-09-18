@@ -40,6 +40,8 @@ const LAST_CHAR = [
  * @return
  *     若给定的号码的起始位置到结束位置（不包含）的片段可以解析为一个整数，则返
  *     回解析后的整数；否则返回null。
+ * @author 胡海星
+ * @private
  */
 function parseNumber(number, start, end) {
   if (!number || (start < 0) || (end <= start) || (end > number.length)) {
@@ -72,6 +74,7 @@ function parseNumber(number, start, end) {
  * @return {Boolean}
  *     若给定的身份证号码的生日字段合法，则返回true；否则返回false。
  * @author 胡海星
+ * @private
  */
 function isIdCardBirthdayValid(number) {
   const year = parseNumber(number, YEAR_INDEX, YEAR_INDEX + YEAR_LENGTH);
@@ -108,6 +111,7 @@ function isIdCardBirthdayValid(number) {
  * @return {Boolean}
  *     若给定的身份证号码的地址区县字段合法，则返回true；否则返回false。
  * @author 胡海星
+ * @private
  */
 /* eslint  no-unused-vars: "off" */
 function isIdCardAreaValid(number) {
@@ -147,6 +151,7 @@ function isIdCardAreaValid(number) {
  * @return {Boolean}
  *     若给定的身份证号码合法，则返回true；否则返回false。
  * @author 胡海星
+ * @private
  */
 export function isIdCardNumberValid(number) {
   if ((typeof number === 'string') || (number instanceof String)) {
@@ -194,6 +199,8 @@ export function isIdCardNumberValid(number) {
  * @return {string|null}
  *     从给定的身份证号码中提取出的出生日期，表示为'YYYY-MM-DD'格式的字符串。如
  *     果无法提取，则返回`null`。
+ * @author 胡海星
+ * @private
  */
 export function getIdCardBirthday(number) {
   if ((typeof number === 'string') || (number instanceof String)) {
@@ -219,6 +226,8 @@ export function getIdCardBirthday(number) {
  * @return {string|null}
  *     从给定的身份证号码中提取出的性别，表示为字符串`'MALE'`或`'FEMALE'`。如果无法提取，则
  *     返回`null`。
+ * @author 胡海星
+ * @private
  */
 export function getIdCardGender(number) {
   if ((typeof number === 'string') || (number instanceof String)) {

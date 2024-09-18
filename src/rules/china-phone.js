@@ -21,6 +21,7 @@
  * FIXME：验证此规则正确性，并重构规则
  *
  * @author 胡海星
+ * @private
  */
 const PHONE_REGEXP = /^(^(\+?\d{2,4}[-_－—]?)?\d{3,8}([-_－—]?\d{3,8})?([-_－—]?\d{1,7})?$)|(^0?1[35]\d{9}$)$/;
 
@@ -28,6 +29,7 @@ const PHONE_REGEXP = /^(^(\+?\d{2,4}[-_－—]?)?\d{3,8}([-_－—]?\d{3,8})?([-
  * 中国固定电话号码验证规则。
  *
  * @type {object}
+ * @namespace
  * @author 胡海星
  */
 const ChinaPhoneRule = {

@@ -11,6 +11,7 @@
  * 布尔值验证规则。
  *
  * @type {object}
+ * @namespace
  * @author 胡海星
  */
 const BoolRule = {

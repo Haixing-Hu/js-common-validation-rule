@@ -33,6 +33,7 @@
  * 4. 外交护照号码格式：D + 8为数字；
  *
  * @author 胡海星
+ * @private
  */
 const NUMBER_REGEXP = /^(E[A-Z0-9][0-9]{7}|[SDP]E[0-9]{7}|MA[0-9]{7}|K[0-9]{8}|1[45][0-9]{7}|G[0-9]{8}|P[0-9]{7}|S[0-9]{7,8}|D[0-9]{8})$/;
 
@@ -40,6 +41,7 @@ const NUMBER_REGEXP = /^(E[A-Z0-9][0-9]{7}|[SDP]E[0-9]{7}|MA[0-9]{7}|K[0-9]{8}|1
  * 中华人民共和国护照号码验证规则。
  *
  * @type {object}
+ * @namespace
  * @author 胡海星
  */
 const ChinaPassportRule = {

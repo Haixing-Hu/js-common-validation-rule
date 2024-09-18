@@ -15,11 +15,15 @@
 class ValidationResult {
   /**
    * Indicates whether the validation is successful.
+   *
+   * @type {boolean}
    */
   success = true;
 
   /**
    * The description of the validation result.
+   *
+   * @type {string}
    */
   description = '';
 

@@ -11,6 +11,7 @@
  * The regular expression of a valid local date.
  *
  * @author Haixing Hu
+ * @private
  */
 const DATE_REGEXP = /^\s*[0-9]{4}-[0-9]{1,2}-[0-9]{1,2}\s*$/;
 
@@ -18,6 +19,7 @@ const DATE_REGEXP = /^\s*[0-9]{4}-[0-9]{1,2}-[0-9]{1,2}\s*$/;
  * The validation rule of local date values.
  *
  * @type {object}
+ * @namespace
  * @author Haixing Hu
  */
 const LocalDateRule = {

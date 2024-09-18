@@ -12,6 +12,7 @@
  * 这类字符串通常可以用来表示证件编号、发票号等数据。
  *
  * @author 胡海星
+ * @private
  */
 const ALPHA_NUMBER_REGEXP = /^\s*[0-9a-zA-Z]+\s*$/;
 
@@ -19,6 +20,7 @@ const ALPHA_NUMBER_REGEXP = /^\s*[0-9a-zA-Z]+\s*$/;
  * 数字和字母组合字符串的验证规则。
  *
  * @type {object}
+ * @namespace
  * @author 胡海星
  */
 const AlphaNumberRule = {

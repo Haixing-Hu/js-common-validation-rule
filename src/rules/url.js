@@ -12,6 +12,7 @@ import uri from 'node-uri';
  * URL地址验证规则。
  *
  * @type {object}
+ * @namespace
  * @author 胡海星
  */
 const UrlRule = {

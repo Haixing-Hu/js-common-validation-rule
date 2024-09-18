@@ -13,6 +13,7 @@
  * 这类字符串通常可以用来表示证件编号、发票号等数据。
  *
  * @author 胡海星
+ * @private
  */
 const UPPERCASE_ALPHA_NUMBER_REGEXP = /^\s*[0-9A-Z]+\s*$/;
 
@@ -20,6 +21,7 @@ const UPPERCASE_ALPHA_NUMBER_REGEXP = /^\s*[0-9A-Z]+\s*$/;
  * 数字和大写字母组合字符串验证规则。
  *
  * @type {object}
+ * @namespace
  * @author 胡海星
  */
 const UppercaseAlphaNumberRule = {

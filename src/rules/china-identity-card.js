@@ -41,6 +41,7 @@ import {
  * 证出生日期的范围是否合法。
  *
  * @type {object}
+ * @namespace
  * @author 胡海星
  */
 const ChinaIdentityCardRule = {

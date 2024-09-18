@@ -12,6 +12,7 @@
  * 整数可以是正数或者负数，只考虑十进制。
  *
  * @author 胡海星
+ * @private
  */
 const INTEGER_REGEXP = /^\s*[+-]?\d+\s*$/;
 
@@ -19,6 +20,7 @@ const INTEGER_REGEXP = /^\s*[+-]?\d+\s*$/;
  * 整数验证规则。
  *
  * @type {object}
+ * @namespace
  * @author 胡海星
  */
 const IntegerRule = {

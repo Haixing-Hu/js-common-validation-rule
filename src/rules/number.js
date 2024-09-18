@@ -15,6 +15,7 @@
  * 注意，此正则表达式不考虑 `NaN` 和 `Infinity`.
  *
  * @author 胡海星
+ * @private
  */
 const NUMBER_REGEXP = /^\s*[+-]?(?:\d+\.?|\d*\.\d+)(?:[E|e][+|-]?\d+)?\s*$/;
 
@@ -30,6 +31,7 @@ const NUMBER_REGEXP = /^\s*[+-]?(?:\d+\.?|\d*\.\d+)(?:[E|e][+|-]?\d+)?\s*$/;
  * **注意：** 和 `NumericRule` 对象不同，`bigint` 值不被看作是一个合法的数字。
  *
  * @type {object}
+ * @namespace
  * @see NumericRule
  * @author 胡海星
  */

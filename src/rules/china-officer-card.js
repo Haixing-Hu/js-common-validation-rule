@@ -13,6 +13,7 @@
  * 合法的军官证号码由6~8位字母、数字或句点组成。
  *
  * @author 胡海星
+ * @private
  */
 const NUMBER_REGEXP = /^[a-zA-Z0-9.]{6,8}$/;
 
@@ -20,6 +21,7 @@ const NUMBER_REGEXP = /^[a-zA-Z0-9.]{6,8}$/;
  * 中华人民共和国军官证号码验证规则。
  *
  * @type {object}
+ * @namespace
  * @author 胡海星
  */
 const ChinaOfficerCardRule = {

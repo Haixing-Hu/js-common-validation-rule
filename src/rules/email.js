@@ -12,6 +12,7 @@ import EmailValidator from 'email-validator';
  * 电子邮件地址验证规则。
  *
  * @type {object}
+ * @namespace
  * @author 胡海星
  */
 const EmailRule = {

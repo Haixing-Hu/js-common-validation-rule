@@ -18,6 +18,7 @@ import NumberRule from './number';
  * **注意：** 和 `NumberRule` 对象不同，`bigint` 值也被看作是一个合法的数值。
  *
  * @type {object}
+ * @namespace
  * @see NumberRule
  * @author 胡海星
  */

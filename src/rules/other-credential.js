@@ -13,6 +13,7 @@
  * 合法的证件号码由2~60位字母、数字或句点组成。
  *
  * @author 胡海星
+ * @private
  */
 const NUMBER_REGEXP = /^[a-zA-Z0-9.]{2,60}$/;
 
@@ -20,6 +21,7 @@ const NUMBER_REGEXP = /^[a-zA-Z0-9.]{2,60}$/;
  * 其他证件号码验证规则。
  *
  * @type {object}
+ * @namespace
  * @author 胡海星
  */
 const OtherCredentialRule = {

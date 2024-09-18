@@ -11,6 +11,7 @@
  * The default length of the verify code.
  *
  * @type {number}
+ * @private
  */
 const DEFAULT_VERIFY_CODE_LENGTH = 6;
 
@@ -18,6 +19,7 @@ const DEFAULT_VERIFY_CODE_LENGTH = 6;
  * The validation rule of verify codes.
  *
  * @type {object}
+ * @namespace
  * @author Haixing Hu
  */
 const VerifyCodeRule = {
