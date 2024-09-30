@@ -36,7 +36,7 @@ describe('isIdCardNumberValid', () => {
   });
 
   it('returns false for non-string input', () => {
-    expect(isIdCardNumberValid(123456789012345)).toBe(false);
+    expect(isIdCardNumberValid(123456789012345n)).toBe(false);
   });
 
   it('returns false for empty string', () => {
@@ -187,7 +187,7 @@ describe('isIdCardBirthdayValid', () => {
   });
 
   it('returns false for non-string input', () => {
-    expect(isIdCardBirthdayValid(123456789012345678)).toBe(false);
+    expect(isIdCardBirthdayValid(123456789012345678n)).toBe(false);
   });
 
   it('returns false for empty string', () => {
