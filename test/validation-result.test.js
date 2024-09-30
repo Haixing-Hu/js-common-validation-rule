@@ -8,11 +8,49 @@
 ////////////////////////////////////////////////////////////////////////////////
 import { ValidationResult } from '../src';
 
-/**
- * Unit test of the {@link ValidationResult#merge}.
- *
- * @author Haixing Hu
- */
+describe('ValidationResult', () => {
+  it('creates a successful validation result by default', () => {
+    const result = new ValidationResult();
+    expect(result.success).toBe(true);
+    expect(result.description).toBe('');
+    expect(result.next).toBeNull();
+  });
+
+  it('creates a failed validation result with a description', () => {
+    const result = new ValidationResult(false, 'Invalid input');
+    expect(result.success).toBe(false);
+    expect(result.description).toBe('Invalid input');
+    expect(result.next).toBeNull();
+  });
+
+  it('creates a successful validation result with a description', () => {
+    const result = new ValidationResult(true, 'Valid input');
+    expect(result.success).toBe(true);
+    expect(result.description).toBe('Valid input');
+    expect(result.next).toBeNull();
+  });
+
+  it('creates a validation result with default values when null or undefined is passed', () => {
+    const result1 = new ValidationResult(null, null);
+    expect(result1.success).toBe(true);
+    expect(result1.description).toBe('');
+    expect(result1.next).toBeNull();
+
+    const result2 = new ValidationResult(undefined, undefined);
+    expect(result2.success).toBe(true);
+    expect(result2.description).toBe('');
+    expect(result2.next).toBeNull();
+  });
+
+  it('sets next validation result correctly', () => {
+    const result1 = new ValidationResult(false, 'First error');
+    const result2 = new ValidationResult(false, 'Second error');
+    result1.next = result2;
+    expect(result1.next).toBe(result2);
+    expect(result1.next.description).toBe('Second error');
+  });
+});
+
 describe('ValidationResult.merge', () => {
   test('ValidationResult.merge()', () => {
     const merged = ValidationResult.merge();

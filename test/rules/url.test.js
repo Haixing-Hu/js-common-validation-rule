@@ -95,4 +95,8 @@ describe('UrlRule.isValid()', () => {
     const str = 'ftp://user:pass@xn--fiq228c.com:8042/over/there?name=ferret#nose';
     expect(UrlRule.isValid(str)).toBe(false);
   });
+  test('valid url with leading and trailing spaces', () => {
+    const str = '  http://www.bar.com/foo ';
+    expect(UrlRule.isValid(str)).toBe(true);
+  });
 });

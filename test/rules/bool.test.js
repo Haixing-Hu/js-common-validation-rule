@@ -58,4 +58,12 @@ describe('BoolRule.isValid()', () => {
     const str = ' true. ';
     expect(BoolRule.isValid(str)).toBe(false);
   });
+  test('valid for boolean primitive', () => {
+    const str = true;
+    expect(BoolRule.isValid(str)).toBe(true);
+  });
+  test('valid for boolean wrapper object', () => {
+    const str = new Boolean(true);
+    expect(BoolRule.isValid(str)).toBe(true);
+  });
 });

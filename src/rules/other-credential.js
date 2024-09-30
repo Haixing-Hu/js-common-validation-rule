@@ -15,7 +15,7 @@
  * @author 胡海星
  * @private
  */
-const NUMBER_REGEXP = /^[a-zA-Z0-9.]{2,60}$/;
+const NUMBER_REGEXP = /^\s*[a-zA-Z0-9.]{2,60}\s*$/;
 
 /**
  * 其他证件号码验证规则。
@@ -29,7 +29,7 @@ const OtherCredentialRule = {
    * 检查其他证件号码是否合法
    *
    * @param {any} number
-   *    证件号码，必须是trim()后的值，此函数不做trim()
+   *    证件号码。注意此函数允许号码前后出现空白字符。
    * @return {boolean}
    *    若该证件号码合法，返回true；否则返回false
    * @author 胡海星

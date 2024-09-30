@@ -44,9 +44,6 @@ const LAST_CHAR = [
  * @private
  */
 function parseNumber(number, start, end) {
-  if (!number || (start < 0) || (end <= start) || (end > number.length)) {
-    return null;
-  }
   let result = 0;
   for (let i = start; i < end; ++i) {
     const ch = number.charCodeAt(i);
@@ -76,26 +73,33 @@ function parseNumber(number, start, end) {
  * @author 胡海星
  * @private
  */
-function isIdCardBirthdayValid(number) {
-  const year = parseNumber(number, YEAR_INDEX, YEAR_INDEX + YEAR_LENGTH);
-  const month = parseNumber(number, MONTH_INDEX, MONTH_INDEX + MONTH_LENGTH);
-  const day = parseNumber(number, DAY_INDEX, DAY_INDEX + DAY_LENGTH);
-  if (year == null || month == null || day == null) {
-    return false;
-  }
-  const birthday = new Date(year, month - 1, day);  // 注意月份从0开始计算
-  // 判定解析出来的年、月、日是否是合法的年、月、日
-  if (birthday.getFullYear() !== year
+export function isIdCardBirthdayValid(number) {
+  if ((typeof number === 'string') || (number instanceof String)) {
+    number = number.trim();
+    if (number.length !== NUMBER_LENGTH) {
+      return false;
+    }
+    const year = parseNumber(number, YEAR_INDEX, YEAR_INDEX + YEAR_LENGTH);
+    const month = parseNumber(number, MONTH_INDEX, MONTH_INDEX + MONTH_LENGTH);
+    const day = parseNumber(number, DAY_INDEX, DAY_INDEX + DAY_LENGTH);
+    if (year == null || month == null || day == null) {
+      return false;
+    }
+    const birthday = new Date(year, month - 1, day);  // 注意月份从0开始计算
+    // 判定解析出来的年、月、日是否是合法的年、月、日
+    if (birthday.getFullYear() !== year
       || birthday.getMonth() !== month - 1
       || birthday.getDate() !== day) {
-    return false;
+      return false;
+    }
+    // 判定解析出来的日期是否超过今天，合法的身份证的日期不应该超过今天
+    const now = new Date();
+    if (birthday.getTime() > now.getTime()) {
+      return false;
+    }
+    return true;
   }
-  // 判定解析出来的日期是否超过今天，合法的身份证的日期不应该超过今天
-  const now = new Date();
-  if (birthday.getTime() > now.getTime()) {
-    return false;
-  }
-  return true;
+  return false;
 }
 
 /**
@@ -113,10 +117,17 @@ function isIdCardBirthdayValid(number) {
  * @author 胡海星
  * @private
  */
-/* eslint  no-unused-vars: "off" */
-function isIdCardAreaValid(number) {
-  const code = number.substring(AREA_INDEX, AREA_INDEX + AREA_LENGTH);
-  return AREA_CODES.has(code);
+export function isIdCardAreaValid(number) {
+  if ((typeof number === 'string') || (number instanceof String)) {
+    number = number.trim();
+    if (number.length !== NUMBER_LENGTH) {
+      return false;
+    }
+    const code = number.substring(AREA_INDEX, AREA_INDEX + AREA_LENGTH);
+    return AREA_CODES.has(code);
+  } else {
+    return false;
+  }
 }
 
 /**
@@ -147,7 +158,7 @@ function isIdCardAreaValid(number) {
  * 如果余数是10，身份证的最后一位号码就是2。
  *
  * @param {string} number
- *     给定的身份证号码。
+ *     给定的身份证号码，前后允许有空白字符。
  * @return {Boolean}
  *     若给定的身份证号码合法，则返回true；否则返回false。
  * @author 胡海星
@@ -155,6 +166,7 @@ function isIdCardAreaValid(number) {
  */
 export function isIdCardNumberValid(number) {
   if ((typeof number === 'string') || (number instanceof String)) {
+    number = number.trim();
     if (number.length !== NUMBER_LENGTH) {
       return false;
     }
@@ -204,6 +216,7 @@ export function isIdCardNumberValid(number) {
  */
 export function getIdCardBirthday(number) {
   if ((typeof number === 'string') || (number instanceof String)) {
+    number = number.trim();
     if (number.length !== NUMBER_LENGTH) {
       return null;
     }
@@ -231,6 +244,7 @@ export function getIdCardBirthday(number) {
  */
 export function getIdCardGender(number) {
   if ((typeof number === 'string') || (number instanceof String)) {
+    number = number.trim();
     if (number.length !== NUMBER_LENGTH) {
       return null;
     }

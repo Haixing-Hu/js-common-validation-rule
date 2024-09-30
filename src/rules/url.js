@@ -22,18 +22,19 @@ const UrlRule = {
    * 合法的网址的schema必须是HTTP或HTTPS协议。
    *
    * @param {String} url
-   *    待测试的URL，注意必须先对其trim()，此函数不做trim()
+   *    待测试的URL，注意此函数允许字符串首位出现空格。
    * @return {Boolean}
    *    若URL合法则返回true；否则返回false。
    * @author 胡海星
    */
   isValid(url) {
     if ((typeof url === 'string') || (url instanceof String)) {
-      if (url.length === 0) {
+      const u = url.trim();
+      if (u.length === 0) {
         return false;
       }
       try {
-        uri.checkWebURL(url);
+        uri.checkWebURL(u);
         return true;
       } catch (URIError) {
         return false;

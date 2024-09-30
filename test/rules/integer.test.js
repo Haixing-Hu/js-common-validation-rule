@@ -54,6 +54,10 @@ describe('IntegerRule.isValid()', () => {
     const value = '  +123 ';
     expect(IntegerRule.isValid(value)).toBe(true);
   });
+  test('"  new Number(+123) "', () => {
+    const value = new Number(123);
+    expect(IntegerRule.isValid(value)).toBe(true);
+  });
   test('"  -123"', () => {
     const value = '  -123';
     expect(IntegerRule.isValid(value)).toBe(true);

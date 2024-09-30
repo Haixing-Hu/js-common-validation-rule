@@ -8,11 +8,6 @@
 ////////////////////////////////////////////////////////////////////////////////
 import { ChinaIdentityCardRule } from '../../src';
 
-/**
- * 单元测试{@link ChineseIdentityCard.isValid}。
- *
- * @author 胡海星
- */
 describe('ChineseIdentityCard.isValid()', () => {
   test('undefined', () => {
     expect(ChinaIdentityCardRule.isValid()).toBe(false);
@@ -28,6 +23,9 @@ describe('ChineseIdentityCard.isValid()', () => {
   });
   test('正确的身份证号码', () => {
     expect(ChinaIdentityCardRule.isValid('110101199003078515')).toBe(true);
+  });
+  test('正确的身份证号码，前后有空白字符', () => {
+    expect(ChinaIdentityCardRule.isValid(' \r110101199003078515 \n\f ')).toBe(true);
   });
   test('错误的身份证号码', () => {
     expect(ChinaIdentityCardRule.isValid('110101199003078516')).toBe(false);
@@ -56,4 +54,52 @@ describe('ChineseIdentityCard.isValid()', () => {
   });
   // TODO：补充以下几类测试样例，错误的行政区编码，错误的生日，生日超过今天，错误的校验码
   // TODO: 补充以下几类测试样例，已经过期的行政区编码
+});
+
+describe('ChinaIdentityCardRule.getGender()', () => {
+  test('returns MALE for valid male ID card number', () => {
+    expect(ChinaIdentityCardRule.getGender('110101199003078515')).toBe('MALE');
+  });
+
+  test('returns MALE for valid male ID card number with leading and trailing spaces', () => {
+    expect(ChinaIdentityCardRule.getGender(' 110101199003078515  ')).toBe('MALE');
+  });
+
+  test('returns FEMALE for valid female ID card number', () => {
+    expect(ChinaIdentityCardRule.getGender('110101199003078524')).toBe('FEMALE');
+  });
+
+  test('returns MALE for invalid ID card number', () => {
+    expect(ChinaIdentityCardRule.getGender('11010119900307853X')).toBe('MALE');
+  });
+
+  test('returns null for non-string input', () => {
+    expect(ChinaIdentityCardRule.getGender(123456)).toBeNull();
+  });
+
+  test('returns null for empty string', () => {
+    expect(ChinaIdentityCardRule.getGender('')).toBeNull();
+  });
+});
+
+describe('ChinaIdentityCardRule.getBirthday()', () => {
+  test('returns correct birthday for valid ID card number', () => {
+    expect(ChinaIdentityCardRule.getBirthday('110101199003078515')).toBe('1990-03-07');
+  });
+
+  test('returns correct birthday for valid ID card number with leading/trailing spaces', () => {
+    expect(ChinaIdentityCardRule.getBirthday(' 110101199003078515  ')).toBe('1990-03-07');
+  });
+
+  test('returns correct birthday for invalid ID card number', () => {
+    expect(ChinaIdentityCardRule.getBirthday('11010119900307852X')).toBe('1990-03-07');
+  });
+
+  test('returns null for non-string input', () => {
+    expect(ChinaIdentityCardRule.getBirthday(123456)).toBeNull();
+  });
+
+  test('returns null for empty string', () => {
+    expect(ChinaIdentityCardRule.getBirthday('')).toBeNull();
+  });
 });

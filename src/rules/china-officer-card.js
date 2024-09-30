@@ -15,7 +15,7 @@
  * @author 胡海星
  * @private
  */
-const NUMBER_REGEXP = /^[a-zA-Z0-9.]{6,8}$/;
+const NUMBER_REGEXP = /^\s*[a-zA-Z0-9.]{6,8}\s*$/;
 
 /**
  * 中华人民共和国军官证号码验证规则。
@@ -45,7 +45,7 @@ const ChinaOfficerCardRule = {
    * 检查军官证号码是否合法
    *
    * @param {any} number
-   *    军官证号码，必须是trim()后的值，此函数不做trim()
+   *    军官证号码，允许前后有空白字符。
    * @return {boolean}
    *    若该军官证号码合法，返回true；否则返回false
    * @author 胡海星
