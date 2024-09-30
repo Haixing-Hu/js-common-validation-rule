@@ -49,7 +49,7 @@ describe('VerifyCodeRule', () => {
     expect(VerifyCodeRule.isValid('')).toBe(false);
   });
 
-  test('returns false for valid verify code with leading and trailing spaces', () => {
-    expect(VerifyCodeRule.isValid(' 123456 ')).toBe(false);
+  test('returns true for valid verify code with leading and trailing spaces', () => {
+    expect(VerifyCodeRule.isValid(' 123456 ')).toBe(true);
   });
 });

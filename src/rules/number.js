@@ -59,7 +59,7 @@ const NumberRule = {
    * **注意：** 和 `NumericRule.isValid()` 不同，`bigint` 值不被看作是一个合法的数字。
    *
    * @param {any} value
-   *    待测试的值。
+   *    待测试的值，前后允许有空白字符。
    * @param {object} option
    *    测试选项，表示是否将 ‘NaN’ 或 ‘Infinity’ 也看做是合法的数字字符串表示。
    *    此选项对象可以包含下列属性：
@@ -80,6 +80,7 @@ const NumberRule = {
       }
       return true;
     } else if ((type === 'string') || (value instanceof String)) {
+      value = value.trim();
       if (value.length === 0) {
         return false;
       }

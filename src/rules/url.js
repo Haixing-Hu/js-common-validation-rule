@@ -22,7 +22,7 @@ const UrlRule = {
    * 合法的网址的schema必须是HTTP或HTTPS协议。
    *
    * @param {String} url
-   *    待测试的URL，注意此函数允许字符串首位出现空格。
+   *    待测试的URL，前后允许有空白字符。
    * @return {Boolean}
    *    若URL合法则返回true；否则返回false。
    * @author 胡海星

@@ -30,7 +30,7 @@ const VerifyCodeRule = {
    * specified length
    *
    * @param {string} code
-   *     The string to be tested.
+   *     The string to be tested. The leading and trailing spaces are ignored.
    * @param {number} length
    *     The optional length of the verify code. The default value is 6.
    * @return
@@ -39,6 +39,7 @@ const VerifyCodeRule = {
    */
   isValid(code, length = DEFAULT_VERIFY_CODE_LENGTH) {
     if ((typeof code === 'string') || (code instanceof String)) {
+      code = code.trim();
       const n = code.length;
       if (n !== length) {
         return false;

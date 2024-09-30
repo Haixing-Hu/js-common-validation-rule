@@ -115,10 +115,10 @@ describe('PersonNameRule.isValid()', () => {
     expect(PersonNameRule.isValid('SS.')).toBe(false);
   });
   test('英文或拼音2字符开头加空格', () => {
-    expect(PersonNameRule.isValid(' SS')).toBe(false);
+    expect(PersonNameRule.isValid(' SS')).toBe(true);
   });
   test('英文或拼音2字符末尾加空格', () => {
-    expect(PersonNameRule.isValid('SS ')).toBe(false);
+    expect(PersonNameRule.isValid('SS ')).toBe(true);
   });
   test('英文或拼音2字符中间加空格', () => {
     expect(PersonNameRule.isValid('S S')).toBe(true);
@@ -134,5 +134,11 @@ describe('PersonNameRule.isValid()', () => {
   });
   test('英文中加中文', () => {
     expect(PersonNameRule.isValid('S S 张三')).toBe(false);
+  });
+  test('中文前后有空白', () => {
+    expect(PersonNameRule.isValid('  阿凡提.穆罕穆德.买买提\r')).toBe(true);
+  });
+  test('英文前后有空白', () => {
+    expect(PersonNameRule.isValid('\nS S S ')).toBe(true);
   });
 });

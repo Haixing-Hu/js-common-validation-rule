@@ -110,4 +110,8 @@ describe('TimestampRule.isValid()', () => {
     const str = ' 2021-1-1 T9:54:59.1Z';
     expect(TimestampRule.isValid(str)).toBe(true);
   });
+  test('" 2021-01-12T12:31:00Z"', () => {
+    const str = ' 2021-01-12T12:31:00Z';
+    expect(TimestampRule.isValid(str)).toBe(true);
+  });
 });

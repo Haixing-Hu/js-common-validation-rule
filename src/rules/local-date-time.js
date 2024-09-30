@@ -37,7 +37,7 @@ const LocalDateTimeRule = {
    * 注意，此函数只考虑日期时间格式是否正确，不考虑日期时间的逻辑合理性（比如某个月超过了31天）。
    *
    * @param {any} datetime
-   *    待测试的字符串。
+   *    待测试的字符串，前后允许有空白字符。
    * @return {boolean}
    *    若该字符串表示一个合法的日期时间则返回true；否则返回false。
    * @author 胡海星

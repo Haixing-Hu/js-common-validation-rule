@@ -91,4 +91,10 @@ describe('ChinaPassportRule.isValid()', () => {
     expect(ChinaPassportRule.isValid('D123456789')).toBe(false);
     expect(ChinaPassportRule.isValid('C12345678')).toBe(false);
   });
+  test('前后有空白', () => {
+    expect(ChinaPassportRule.isValid('  D12345678  ')).toBe(true);
+    expect(ChinaPassportRule.isValid('\rS12345678\n')).toBe(true);
+    expect(ChinaPassportRule.isValid('    E12345678')).toBe(true);
+    expect(ChinaPassportRule.isValid('EA1234567   ')).toBe(true);
+  });
 });

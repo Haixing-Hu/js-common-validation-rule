@@ -40,7 +40,8 @@ const LocalTimeRule = {
    *
    * @param {any} value
    *    The value to be tested. It could be a string primitive, a built-in
-   *    `String` object, or other type.
+   *    `String` object, or other type. The leading and trailing whitespaces
+   *    of a string will be trimmed before testing.
    * @return {boolean}
    *    `true` if the value represents a valid local date; `false` otherwise.
    * @author Haixing Hu

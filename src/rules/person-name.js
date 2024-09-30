@@ -34,7 +34,7 @@
  * @author 胡海星
  * @private
  */
-const CHINESE_NAME_REGEXP = /^[\u{4E00}-\u{9FEF}\u{3400}-\u{4DBF}\u{20000}-\u{2A6D6}\u{2A700}-\u{2B734}\u{2B740}-\u{2B81D}\u{2B820}-\u{2CEA1}\u{2CEB0}-\u{2EBE0}\u{F900}-\u{FAD9}\u{2F800}-\u{2FA1F}][\u{4E00}-\u{9FEF}\u{3400}-\u{4DBF}\u{20000}-\u{2A6D6}\u{2A700}-\u{2B734}\u{2B740}-\u{2B81D}\u{2B820}-\u{2CEA1}\u{2CEB0}-\u{2EBE0}\u{F900}-\u{FAD9}\u{2F800}-\u{2FA1F}·.]{0,28}[\u{4E00}-\u{9FEF}\u{3400}-\u{4DBF}\u{20000}-\u{2A6D6}\u{2A700}-\u{2B734}\u{2B740}-\u{2B81D}\u{2B820}-\u{2CEA1}\u{2CEB0}-\u{2EBE0}\u{F900}-\u{FAD9}\u{2F800}-\u{2FA1F}]$/u;
+const CHINESE_NAME_REGEXP = /^\s*[\u{4E00}-\u{9FEF}\u{3400}-\u{4DBF}\u{20000}-\u{2A6D6}\u{2A700}-\u{2B734}\u{2B740}-\u{2B81D}\u{2B820}-\u{2CEA1}\u{2CEB0}-\u{2EBE0}\u{F900}-\u{FAD9}\u{2F800}-\u{2FA1F}][\u{4E00}-\u{9FEF}\u{3400}-\u{4DBF}\u{20000}-\u{2A6D6}\u{2A700}-\u{2B734}\u{2B740}-\u{2B81D}\u{2B820}-\u{2CEA1}\u{2CEB0}-\u{2EBE0}\u{F900}-\u{FAD9}\u{2F800}-\u{2FA1F}·.]{0,28}[\u{4E00}-\u{9FEF}\u{3400}-\u{4DBF}\u{20000}-\u{2A6D6}\u{2A700}-\u{2B734}\u{2B740}-\u{2B81D}\u{2B820}-\u{2CEA1}\u{2CEB0}-\u{2EBE0}\u{F900}-\u{FAD9}\u{2F800}-\u{2FA1F}]\s*$/u;
 
 /**
  * 验证英文姓名或汉语拼音名字的正则表达式
@@ -46,7 +46,7 @@ const CHINESE_NAME_REGEXP = /^[\u{4E00}-\u{9FEF}\u{3400}-\u{4DBF}\u{20000}-\u{2A
  * @author 胡海星
  * @private
  */
-const ENGLISH_NAME_REGEXP = /^[a-zA-Z][a-zA-Z .]{0,58}[a-zA-Z]$/;
+const ENGLISH_NAME_REGEXP = /^\s*[a-zA-Z][a-zA-Z .]{0,58}[a-zA-Z]\s*$/;
 
 /**
  * 中英文姓名验证规则。
@@ -60,7 +60,7 @@ const PersonNameRule = {
    * 测试中英文姓名是否合法
    *
    * @param {any} name
-   *    待测试的姓名，注意必须先对其trim()，此函数不做trim()
+   *    待测试的姓名，前后允许有空白字符。
    * @return {boolean}
    *    若姓名合法则返回true；否则返回false。
    * @author 胡海星

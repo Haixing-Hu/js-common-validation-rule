@@ -81,4 +81,7 @@ describe('ChinaMobileRule.isValid()', () => {
   test('String对象', () => {
     expect(ChinaMobileRule.isValid(new String('19191019545'))).toBe(true);
   });
+  test('allow leading/trailing spaces', () => {
+    expect(ChinaMobileRule.isValid(' 13474937629\r')).toBe(true);
+  });
 });

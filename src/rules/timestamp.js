@@ -37,7 +37,7 @@ const TimestampRule = {
    * 注意，此函数只考虑时间戳格式是否正确，不考虑时间戳的逻辑合理性（比如某个月超过了31天）。
    *
    * @param {any} timestamp
-   *    待测试的字符串。
+   *    待测试的字符串，前后允许有空白字符。
    * @return {boolean}
    *    若该字符串表示一个合法的时间戳则返回true；否则返回false。
    * @author 胡海星

@@ -35,7 +35,7 @@ const NumericRule = {
    * **注意：** 和 `NumberRule.isValid()` 不同，`bigint` 值也被看作是一个合法的数值。
    *
    * @param {any} value
-   *    待测试的值。
+   *    待测试的值，前后允许有空白字符。
    * @param {object} option
    *    测试选项，表示是否将 ‘NaN’ 或 ‘Infinity’ 也看做是合法的浮点数字符串表示。
    *    此选项对象可以包含下列属性：

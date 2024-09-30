@@ -32,7 +32,7 @@ const IntegerRule = {
    * 注意此函数允许字符串首位出现空格。
    *
    * @param {any} value
-   *    待测试的值。
+   *    待测试的值，前后允许有空白字符。
    * @return {boolean}
    *    若该值是一个表示整数的`number`，`Number`或`bigint`，或表示整数的字符串，则返回true；
    *    否则返回false。

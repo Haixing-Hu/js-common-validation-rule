@@ -20,7 +20,7 @@ const EmailRule = {
    * 测试电子邮件地址是否合法。
    *
    * @param {any} email
-   *    待测试的电子邮件地址，注意此函数允许字符串前后出现空格。
+   *    待测试的电子邮件地址，前后允许有空白字符。
    * @return {boolean}
    *    若电子邮件地址合法则返回true；否则返回false。
    * @author 胡海星

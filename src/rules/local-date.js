@@ -36,7 +36,8 @@ const LocalDateRule = {
    *
    * @param {any} value
    *    The value to be tested. It could be a string primitive, a built-in
-   *    `String` object, or a built-in `Date` object.
+   *    `String` object, or a built-in `Date` object. The leading or trailing
+   *    white spaces of the string will be trimmed before testing.
    * @return {boolean}
    *    `true` if the value represents a valid local date; `false` otherwise.
    * @author Haixing Hu

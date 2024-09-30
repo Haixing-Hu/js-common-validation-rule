@@ -20,10 +20,8 @@ const BoolRule = {
    *
    * 测试时忽略大小写。
    *
-   * 注意此函数允许字符串前后出现空格。
-   *
    * @param {any} value
-   *    待测试的值。
+   *    待测试的值，前后允许有空白字符。
    * @return {boolean}
    *    若该值是一个布尔值或表示合法布尔值的字符串，则返回true；否则返回false。
    * @author 胡海星

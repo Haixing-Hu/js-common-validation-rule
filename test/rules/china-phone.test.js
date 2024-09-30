@@ -47,4 +47,7 @@ describe('Phone.isValid()', () => {
   test('"+86-0251－84507762"', () => {
     expect(ChinaPhoneRule.isValid('+86-0251－84507762')).toBe(true);
   });
+  test('allow leading/trailing spaces', () => {
+    expect(ChinaPhoneRule.isValid(' +86-0251－84507762\n')).toBe(true);
+  });
 });

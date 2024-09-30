@@ -29,7 +29,7 @@ const OtherCredentialRule = {
    * 检查其他证件号码是否合法
    *
    * @param {any} number
-   *    证件号码。注意此函数允许号码前后出现空白字符。
+   *    证件号码，前后允许有空白字符。
    * @return {boolean}
    *    若该证件号码合法，返回true；否则返回false
    * @author 胡海星

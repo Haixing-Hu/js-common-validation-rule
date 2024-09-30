@@ -45,7 +45,7 @@ const ChinaOfficerCardRule = {
    * 检查军官证号码是否合法
    *
    * @param {any} number
-   *    军官证号码，允许前后有空白字符。
+   *    军官证号码，前后允许有空白字符。
    * @return {boolean}
    *    若该军官证号码合法，返回true；否则返回false
    * @author 胡海星
