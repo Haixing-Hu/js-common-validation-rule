@@ -16,6 +16,8 @@ import ChinaPhoneRule from './rules/china-phone';
 import EmailRule from './rules/email';
 import IntegerRule from './rules/integer';
 import LocalDateRule from './rules/local-date';
+import LocalDateTimeRule from './rules/local-date-time';
+import LocalTimeRule from './rules/local-time';
 import NumberRule from './rules/number';
 import NumericRule from './rules/numeric';
 import OtherCredentialRule from './rules/other-credential';
@@ -37,6 +39,8 @@ export {
   EmailRule,
   IntegerRule,
   LocalDateRule,
+  LocalDateTimeRule,
+  LocalTimeRule,
   NumberRule,
   NumericRule,
   OtherCredentialRule,
