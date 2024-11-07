@@ -17,6 +17,11 @@ describe('UsernameRule', () => {
     expect(UsernameRule.isValid(new String('validUsername'))).toBe(true);
   });
 
+  it('returns true for valid username with @', () => {
+    expect(UsernameRule.isValid('valid@username')).toBe(true);
+  });
+
+
   it('returns false for username starting with a number', () => {
     expect(UsernameRule.isValid('1invalidUsername')).toBe(false);
   });
@@ -26,7 +31,7 @@ describe('UsernameRule', () => {
   });
 
   it('returns false for username with invalid characters', () => {
-    expect(UsernameRule.isValid('invalid@Username')).toBe(false);
+    expect(UsernameRule.isValid('invalid Username')).toBe(false);
   });
 
   it('returns false for username shorter than 4 characters', () => {
