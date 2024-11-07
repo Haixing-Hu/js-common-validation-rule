@@ -21,6 +21,7 @@ import LocalTimeRule from './rules/local-time';
 import NumberRule from './rules/number';
 import NumericRule from './rules/numeric';
 import OtherCredentialRule from './rules/other-credential';
+import PasswordRule from './rules/password';
 import PersonNameRule from './rules/person-name';
 import TimestampRule from './rules/timestamp';
 import UppercaseAlphaNumberRule from './rules/uppercase-alpha-number';
@@ -45,6 +46,7 @@ export {
   NumberRule,
   NumericRule,
   OtherCredentialRule,
+  PasswordRule,
   PersonNameRule,
   TimestampRule,
   UppercaseAlphaNumberRule,
