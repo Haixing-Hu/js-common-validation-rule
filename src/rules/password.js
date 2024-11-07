@@ -20,7 +20,7 @@
  * @author 胡海星
  * @private
  */
-const PASSWORD_REGEXP = /^[-a-zA-Z0-9`~!@#$%^&*()_=+{}[\]|\\:;'",./?<>]{6,32}$/;
+const PASSWORD_REGEXP = /^[-a-zA-Z0-9`~!@#$%^&*()_=+{}[\]|\\:;'",./?<>]+$/;
 
 /**
  * 密码的验证规则。
@@ -58,7 +58,9 @@ const PasswordRule = {
    */
   isValid(value) {
     if ((typeof value === 'string') || (value instanceof String)) {
-      return PASSWORD_REGEXP.test(value);
+      return (value.length >= this.minLength)
+        && (value.length <= this.maxLength)
+        && PASSWORD_REGEXP.test(value);
     } else {
       return false;
     }

@@ -11,14 +11,14 @@
  *
  * 用户名的规则如下：
  *
- * - 必须以字母开头；
+ * - 必须以字母或数字开头；
  * - 只能包含字母、数字、下划线、连字符、点号、@符号；
  * - 长度为4到32个字符。
  *
  * @author 胡海星
  * @private
  */
-const USERNAME_REGEXP = /^[a-zA-Z][a-zA-Z0-9@\\._-]{3,31}$/;
+const USERNAME_REGEXP = /^[a-zA-Z0-9][a-zA-Z0-9@\\._-]*$/;
 
 /**
  * 用户名的验证规则。
@@ -43,7 +43,7 @@ const UsernameRule = {
    *
    * 用户名的规则如下：
    *
-   * - 必须以字母开头；
+   * - 必须以字母或数字开头；
    * - 只能包含字母、数字、下划线、连字符、点号、@符号；
    * - 长度为4到32个字符。
    *
@@ -55,7 +55,9 @@ const UsernameRule = {
    */
   isValid(value) {
     if ((typeof value === 'string') || (value instanceof String)) {
-      return USERNAME_REGEXP.test(value);
+      return (value.length >= this.minLength)
+        && (value.length <= this.maxLength)
+        && USERNAME_REGEXP.test(value);
     } else {
       return false;
     }
