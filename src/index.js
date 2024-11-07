@@ -25,6 +25,7 @@ import PersonNameRule from './rules/person-name';
 import TimestampRule from './rules/timestamp';
 import UppercaseAlphaNumberRule from './rules/uppercase-alpha-number';
 import UrlRule from './rules/url';
+import UsernameRule from './rules/username';
 import ValidationResult from './validation-result';
 import VerifyCodeRule from './rules/verify-code';
 
@@ -48,6 +49,7 @@ export {
   TimestampRule,
   UppercaseAlphaNumberRule,
   UrlRule,
+  UsernameRule,
   ValidationResult,
   VerifyCodeRule,
 };
