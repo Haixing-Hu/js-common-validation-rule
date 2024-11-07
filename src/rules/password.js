@@ -30,6 +30,15 @@ const PASSWORD_REGEXP = /^[-a-zA-Z0-9`~!@#$%^&*()_=+{}[\]|\\:;'",./?<>]{6,32}$/;
  * @author 胡海星
  */
 const PasswordRule = {
+  /**
+   * 密码的最小长度。
+   */
+  minLength: 6,
+
+  /**
+   * 密码的最大长度。
+   */
+  maxLength: 32,
 
   /**
    * 测试一个值是否是合法的密码。
