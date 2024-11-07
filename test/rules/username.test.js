@@ -21,7 +21,6 @@ describe('UsernameRule', () => {
     expect(UsernameRule.isValid('valid@username')).toBe(true);
   });
 
-
   it('returns false for username starting with a number', () => {
     expect(UsernameRule.isValid('1invalidUsername')).toBe(false);
   });
