@@ -11,27 +11,27 @@ jobs:
       resource_class: medium
     steps:
       - checkout
+      - run:
+          name: Install Yarn 4.0.0 using Corepack
+          command: |
+            sudo corepack enable
+            sudo corepack prepare yarn@4.0.0 --activate
       - node/install-packages:
           pkg-manager: yarn
           with-cache: true
+          override-ci-command: yarn install --immutable
       - run:
-          name: Lint the Source Code
+          name: Lint Source Code
           command: yarn lint
       - run:
-          name: Test the Library
-          command: yarn test --runInBand
+          name: Test the library
+          command: yarn test
       - run:
-          name: Generate the API Documents
-          command: yarn doc
-      - run:
-          name: Build the Library in Development Mode
-          command: yarn build:dev
-      - run:
-          name: Build the Library in Production Mode
+          name: Build the library
           command: yarn build
       - coveralls/upload:
-          coverage_format: lcov
-          coverage_file: coverage/lcov.info
+          coverage_format: clover
+          coverage_file: coverage/clover.xml
 
 workflows:
   build_workflow:
