@@ -8,7 +8,7 @@
 ////////////////////////////////////////////////////////////////////////////////
 
 /**
- * The default length of the verify code.
+ * 验证码的默认长度。
  *
  * @type {number}
  * @private
@@ -16,26 +16,25 @@
 const DEFAULT_VERIFY_CODE_LENGTH = 6;
 
 /**
- * The validation rule of verify codes.
+ * 验证码的验证规则。
  *
  * @type {object}
  * @namespace
- * @author Haixing Hu
+ * @author 胡海星
  */
 const VerifyCodeRule = {
   /**
-   * Tests whether a string is a valid verify code.
+   * 测试字符串是否是有效的验证码。
    *
-   * A valid verify code is a string which contains only digits and has the
-   * specified length
+   * 有效的验证码是仅包含数字且具有指定长度的字符串。
    *
    * @param {string} code
-   *     The string to be tested. The leading and trailing spaces are ignored.
+   *     要测试的字符串。前后的空格会被忽略。
    * @param {number} length
-   *     The optional length of the verify code. The default value is 6.
+   *     可选的验证码长度。默认值为6。
    * @return
-   *     true if the string is a valid verify code; false otherwise
-   * @author Haixing Hu
+   *     如果字符串是有效的验证码，则返回true；否则返回false。
+   * @author 胡海星
    */
   isValid(code, length = DEFAULT_VERIFY_CODE_LENGTH) {
     if ((typeof code === 'string') || (code instanceof String)) {
@@ -45,8 +44,8 @@ const VerifyCodeRule = {
         return false;
       }
       for (let i = 0; i < n; ++i) {
-        if ((code.charCodeAt(i) < 48)     // 48 is the ASCII code of '0'
-          || (code.charCodeAt(i) > 57)) { // 57 is the ASCII code of '9'
+        if ((code.charCodeAt(i) < 48)     // 48 是 '0' 的ASCII码
+          || (code.charCodeAt(i) > 57)) { // 57 是 '9' 的ASCII码
           return false;
         }
       }

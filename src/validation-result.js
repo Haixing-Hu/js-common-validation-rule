@@ -8,44 +8,41 @@
 ////////////////////////////////////////////////////////////////////////////////
 
 /**
- * The class of validation result.
+ * 验证结果的类。
  *
- * @author Haixing Hu
+ * @author 胡海星
  */
 class ValidationResult {
   /**
-   * Indicates whether the validation is successful.
+   * 表示验证是否成功。
    *
    * @type {boolean}
    */
   success = true;
 
   /**
-   * The description of the validation result.
+   * 验证结果的描述。
    *
    * @type {string}
    */
   description = '';
 
   /**
-   * Next validation result.
+   * 下一个验证结果。
    *
-   * If the validation has multiple failed results, the next failed result will
-   * be chained to this field.
+   * 如果验证有多个失败结果，下一个失败结果将链接到此字段。
    *
    * @type {ValidationResult | null}
    */
   next = null;
 
   /**
-   * Create a new {@link ValidationResult} object.
+   * 创建一个新的 {@link ValidationResult} 对象。
    *
    * @param {boolean} success
-   *     The validation correctness flag of the new object. If not provided, the
-   *     default value `true` is used.
+   *     新对象的验证正确性标志。如果未提供，则使用默认值 `true`。
    * @param {string} description
-   *     Description of the validation result of the new object. If not provided,
-   *     the default value is an empty string.
+   *     新对象的验证结果描述。如果未提供，默认值为空字符串。
    */
   constructor(success = true, description = '') {
     this.success = success ?? true;
@@ -54,19 +51,17 @@ class ValidationResult {
   }
 
   /**
-   * Merge multiple {@link ValidationResult} objects.
+   * 合并多个 {@link ValidationResult} 对象。
    *
-   * If all {@link ValidationResult} objects to be merged are successful,
-   * the merging result is a single successful {@link ValidationResult} object;
-   * otherwise, the merging result is the chain of all failed
-   * {@link ValidationResult} objects.
+   * 如果要合并的所有 {@link ValidationResult} 对象都成功，
+   * 则合并结果为单个成功的 {@link ValidationResult} 对象；
+   * 否则，合并结果为所有失败的 {@link ValidationResult} 对象的链。
    *
    * @param  {Array} results
-   *     An array of multiple {@link ValidationResult} objects.
+   *     多个 {@link ValidationResult} 对象的数组。
    * @return {ValidationResult}
-   *     Returns the result of merging all objects in the specified
-   *     {@link ValidationResult} object array as a new {@link ValidationResult}
-   *     object.
+   *     返回将指定的 {@link ValidationResult} 对象数组中的所有对象
+   *     合并的结果作为一个新的 {@link ValidationResult} 对象。
    */
   static merge(results) {
     if (Array.isArray(results) && (results.length > 0)) {

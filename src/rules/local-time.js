@@ -8,43 +8,41 @@
 ////////////////////////////////////////////////////////////////////////////////
 
 /**
- * The regular expression of a valid local date.
+ * 有效本地时间的正则表达式。
  *
- * @author Haixing Hu
+ * @author 胡海星
  * @private
  */
 const TIME_REGEXP = /^\s*(0?[0-9]|1[0-9]|2[0-3]):(0?[0-9]|[0-5][0-9])(:(0?[0-9]|[0-5][0-9]))?\s*$/;
 
 /**
- * The validation rule of local time values.
+ * 本地时间值的验证规则。
  *
  * @type {object}
  * @namespace
- * @author Haixing Hu
+ * @author 胡海星
  */
 const LocalTimeRule = {
   /**
-   * Tests whether a value represents a valid local time.
+   * 测试一个值是否表示有效的本地时间。
    *
-   * If the value is a string, it will be trimmed before testing.
+   * 如果该值是字符串，在测试前会被去除前后空格。
    *
-   * A valid local time string should be in the following format:
+   * 有效的本地时间字符串应该符合以下格式：
    * ```
    * [H]H:[m]m[:[s]s]
    * ```
    *
-   * For example, `12:34`, `23:59:59`, `02:32:9`, `1:2:3`, etc.
+   * 例如，`12:34`、`23:59:59`、`02:32:9`、`1:2:3`等。
    *
-   * Note that this function only tests the format of the time, as well as its
-   * logical value (e.g. whether a second exceeds 60).
+   * 注意，此函数仅测试时间的格式，以及其逻辑值（例如，一秒是否超过60）。
    *
    * @param {any} value
-   *    The value to be tested. It could be a string primitive, a built-in
-   *    `String` object, or other type. The leading and trailing whitespaces
-   *    of a string will be trimmed before testing.
+   *    要测试的值。它可以是字符串原始值、内置的`String`对象或其他类型。
+   *    字符串的前导和尾随空格将在测试前被去除。
    * @return {boolean}
-   *    `true` if the value represents a valid local date; `false` otherwise.
-   * @author Haixing Hu
+   *    如果该值表示有效的本地时间，则返回`true`；否则返回`false`。
+   * @author 胡海星
    */
   isValid(value) {
     if ((typeof value === 'string') || (value instanceof String)) {
