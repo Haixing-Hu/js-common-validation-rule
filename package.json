@@ -1,6 +1,6 @@
 {
   "name": "@qubit-ltd/common-validation-rule",
-  "version": "1.4.5",
+  "version": "1.4.6",
   "description": "A JavaScript ES6 library for common validation rules",
   "author": "Haixing Hu (starfish.hu@gmail.com)",
   "license": "Apache-2.0",
