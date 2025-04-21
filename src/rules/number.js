@@ -6,6 +6,7 @@
 //    All rights reserved.
 //
 ////////////////////////////////////////////////////////////////////////////////
+import { isNumber, isString } from '@qubit-ltd/type-detect';
 
 /**
  * 验证字符串是否表示合法的数字的正则表达式。
@@ -61,7 +62,7 @@ const NumberRule = {
    * @param {any} value
    *    待测试的值，前后允许有空白字符。
    * @param {object} option
-   *    测试选项，表示是否将 ‘NaN’ 或 ‘Infinity’ 也看做是合法的数字字符串表示。
+   *    测试选项，表示是否将 'NaN' 或 'Infinity' 也看做是合法的数字字符串表示。
    *    此选项对象可以包含下列属性：
    *    - allowNaN: 是否将字符串 'NaN' 也看做是一个表示浮点数的合法字符串；默认值为`false`。
    *    - allowInfinity: 是否将字符串 'Infinity' （注意大小写）也看做是一个表示浮点数的合法字符串；默认值为`false`。
@@ -70,8 +71,7 @@ const NumberRule = {
    * @author 胡海星
    */
   isValid(value, option = this.DEFAULT_OPTION) {
-    const type = typeof value;
-    if ((type === 'number') || (value instanceof Number)) {
+    if (isNumber(value)) {
       const val = Number(value);  // should convert value to primitive number
       if (Number.isNaN(val)) {
         return (option.allowNaN === true);
@@ -79,7 +79,7 @@ const NumberRule = {
         return (option.allowInfinity === true);
       }
       return true;
-    } else if ((type === 'string') || (value instanceof String)) {
+    } else if (isString(value)) {
       value = value.trim();
       if (value.length === 0) {
         return false;

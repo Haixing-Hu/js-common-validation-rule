@@ -6,6 +6,7 @@
 //    All rights reserved.
 //
 ////////////////////////////////////////////////////////////////////////////////
+import { isString } from '@qubit-ltd/type-detect';
 
 /**
  * 验证中华人民共和国军官证号码合法性的正则表达式。
@@ -51,7 +52,7 @@ const ChinaOfficerCardRule = {
    * @author 胡海星
    */
   isValid(number) {
-    if ((typeof number === 'string') || (number instanceof String)) {
+    if (isString(number)) {
       return NUMBER_REGEXP.test(number);
     } else {
       return false;

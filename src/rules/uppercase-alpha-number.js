@@ -6,6 +6,7 @@
 //    All rights reserved.
 //
 ////////////////////////////////////////////////////////////////////////////////
+import { isString } from '@qubit-ltd/type-detect';
 
 /**
  * 验证字符串是否是数字和大写字母组合成字符串。
@@ -37,7 +38,7 @@ const UppercaseAlphaNumberRule = {
    * @author 胡海星
    */
   isValid(str) {
-    if ((typeof str === 'string') || (str instanceof String)) {
+    if (isString(str)) {
       return UPPERCASE_ALPHA_NUMBER_REGEXP.test(str);
     } else {
       return false;

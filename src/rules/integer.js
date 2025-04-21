@@ -6,6 +6,8 @@
 //    All rights reserved.
 //
 ////////////////////////////////////////////////////////////////////////////////
+import { isBigInt, isNumber, isString } from '@qubit-ltd/type-detect';
+
 /**
  * 验证字符串是否表示合法的整数的正则表达式。
  *
@@ -39,14 +41,11 @@ const IntegerRule = {
    * @author 胡海星
    */
   isValid(value) {
-    const type = typeof value;
-    if (type === 'bigint') {
+    if (isBigInt(value)) {
       return true;
-    } else if (type === 'number') {
-      return Number.isInteger(value);
-    } else if (value instanceof Number) {
-      return Number.isInteger(Number(value));   // should convert value to primitive number
-    } else if ((type === 'string') || (value instanceof String)) {
+    } else if (isNumber(value)) {
+      return Number.isInteger(Number(value));
+    } else if (isString(value)) {
       return INTEGER_REGEXP.test(value);
     } else {
       return false;

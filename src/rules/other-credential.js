@@ -6,6 +6,7 @@
 //    All rights reserved.
 //
 ////////////////////////////////////////////////////////////////////////////////
+import { isString } from '@qubit-ltd/type-detect';
 
 /**
  * 验证其他证件号码合法性的正则表达式。
@@ -35,7 +36,7 @@ const OtherCredentialRule = {
    * @author 胡海星
    */
   isValid(number) {
-    if ((typeof number === 'string') || (number instanceof String)) {
+    if (isString(number)) {
       return NUMBER_REGEXP.test(number);
     } else {
       return false;

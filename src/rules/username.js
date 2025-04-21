@@ -6,6 +6,8 @@
 //    All rights reserved.
 //
 ////////////////////////////////////////////////////////////////////////////////
+import { isString } from '@qubit-ltd/type-detect';
+
 /**
  * 验证字符串是否是合法的用户名的正则表达式。
  *
@@ -54,7 +56,7 @@ const UsernameRule = {
    * @author 胡海星
    */
   isValid(value) {
-    if ((typeof value === 'string') || (value instanceof String)) {
+    if (isString(value)) {
       return (value.length >= this.minLength)
         && (value.length <= this.maxLength)
         && USERNAME_REGEXP.test(value);

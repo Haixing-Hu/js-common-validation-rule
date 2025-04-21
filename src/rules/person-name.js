@@ -6,6 +6,7 @@
 //    All rights reserved.
 //
 ////////////////////////////////////////////////////////////////////////////////
+import { isString } from '@qubit-ltd/type-detect';
 
 /**
  * 验证中文姓名的正则表达式
@@ -66,7 +67,7 @@ const PersonNameRule = {
    * @author 胡海星
    */
   isValid(name) {
-    return ((typeof name === 'string') || (name instanceof String))
+    return isString(name)
         && (name.length !== 0)
         && (CHINESE_NAME_REGEXP.test(name) || ENGLISH_NAME_REGEXP.test(name));
   },

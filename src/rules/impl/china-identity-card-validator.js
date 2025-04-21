@@ -6,6 +6,7 @@
 //    All rights reserved.
 //
 ////////////////////////////////////////////////////////////////////////////////
+import { isString } from '@qubit-ltd/type-detect';
 import AREA_CODES from './china-area-codes';
 
 const NUMBER_LENGTH = 18;
@@ -74,7 +75,7 @@ function parseNumber(number, start, end) {
  * @private
  */
 export function isIdCardBirthdayValid(number) {
-  if ((typeof number === 'string') || (number instanceof String)) {
+  if (isString(number)) {
     number = number.trim();
     if (number.length !== NUMBER_LENGTH) {
       return false;
@@ -118,7 +119,7 @@ export function isIdCardBirthdayValid(number) {
  * @private
  */
 export function isIdCardAreaValid(number) {
-  if ((typeof number === 'string') || (number instanceof String)) {
+  if (isString(number)) {
     number = number.trim();
     if (number.length !== NUMBER_LENGTH) {
       return false;
@@ -165,7 +166,7 @@ export function isIdCardAreaValid(number) {
  * @private
  */
 export function isIdCardNumberValid(number) {
-  if ((typeof number === 'string') || (number instanceof String)) {
+  if (isString(number)) {
     number = number.trim();
     if (number.length !== NUMBER_LENGTH) {
       return false;
@@ -215,7 +216,7 @@ export function isIdCardNumberValid(number) {
  * @private
  */
 export function getIdCardBirthday(number) {
-  if ((typeof number === 'string') || (number instanceof String)) {
+  if (isString(number)) {
     number = number.trim();
     if (number.length !== NUMBER_LENGTH) {
       return null;
@@ -243,7 +244,7 @@ export function getIdCardBirthday(number) {
  * @private
  */
 export function getIdCardGender(number) {
-  if ((typeof number === 'string') || (number instanceof String)) {
+  if (isString(number)) {
     number = number.trim();
     if (number.length !== NUMBER_LENGTH) {
       return null;

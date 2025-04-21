@@ -6,6 +6,8 @@
 //    All rights reserved.
 //
 ////////////////////////////////////////////////////////////////////////////////
+import { isString } from '@qubit-ltd/type-detect';
+
 /**
  * 验证字符串是否是数字和字母组合成字符串的正则表达式。
  *
@@ -37,7 +39,7 @@ const AlphaNumberRule = {
    * @author 胡海星
    */
   isValid(value) {
-    if ((typeof value === 'string') || (value instanceof String)) {
+    if (isString(value)) {
       return ALPHA_NUMBER_REGEXP.test(value);
     } else {
       return false;

@@ -6,6 +6,7 @@
 //    All rights reserved.
 //
 ////////////////////////////////////////////////////////////////////////////////
+import { isString } from '@qubit-ltd/type-detect';
 
 /**
  * 有效本地时间的正则表达式。
@@ -45,7 +46,7 @@ const LocalTimeRule = {
    * @author 胡海星
    */
   isValid(value) {
-    if ((typeof value === 'string') || (value instanceof String)) {
+    if (isString(value)) {
       return TIME_REGEXP.test(value);
     } else {
       return false;

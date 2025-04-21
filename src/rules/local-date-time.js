@@ -6,6 +6,7 @@
 //    All rights reserved.
 //
 ////////////////////////////////////////////////////////////////////////////////
+import { isString } from '@qubit-ltd/type-detect';
 
 /**
  * 验证字符串是否表示合法的本地日期时间的正则表达式。
@@ -43,7 +44,7 @@ const LocalDateTimeRule = {
    * @author 胡海星
    */
   isValid(datetime) {
-    if (((typeof datetime === 'string') || (datetime instanceof String))) {
+    if (isString(datetime)) {
       return DATETIME_REGEXP.test(datetime);
     } else {
       return false;

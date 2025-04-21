@@ -7,6 +7,7 @@
 //
 ////////////////////////////////////////////////////////////////////////////////
 import uri from 'node-uri';
+import { isString } from '@qubit-ltd/type-detect';
 
 /**
  * URL地址验证规则。
@@ -28,7 +29,7 @@ const UrlRule = {
    * @author 胡海星
    */
   isValid(url) {
-    if ((typeof url === 'string') || (url instanceof String)) {
+    if (isString(url)) {
       const u = url.trim();
       if (u.length === 0) {
         return false;

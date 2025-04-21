@@ -6,6 +6,7 @@
 //    All rights reserved.
 //
 ////////////////////////////////////////////////////////////////////////////////
+import { isDate, isString } from '@qubit-ltd/type-detect';
 
 /**
  * 有效本地日期的正则表达式。
@@ -40,9 +41,9 @@ const LocalDateRule = {
    * @author 胡海星
    */
   isValid(value) {
-    if (value instanceof Date) {
+    if (isDate(value)) {
       return true;
-    } else if ((typeof value === 'string') || (value instanceof String)) {
+    } else if (isString(value)) {
       return DATE_REGEXP.test(value.trim());
     } else {
       return false;

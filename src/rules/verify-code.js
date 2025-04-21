@@ -6,6 +6,7 @@
 //    All rights reserved.
 //
 ////////////////////////////////////////////////////////////////////////////////
+import { isString } from '@qubit-ltd/type-detect';
 
 /**
  * 验证码的默认长度。
@@ -37,7 +38,7 @@ const VerifyCodeRule = {
    * @author 胡海星
    */
   isValid(code, length = DEFAULT_VERIFY_CODE_LENGTH) {
-    if ((typeof code === 'string') || (code instanceof String)) {
+    if (isString(code)) {
       code = code.trim();
       const n = code.length;
       if (n !== length) {

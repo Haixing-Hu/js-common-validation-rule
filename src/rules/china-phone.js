@@ -6,14 +6,16 @@
 //    All rights reserved.
 //
 ////////////////////////////////////////////////////////////////////////////////
+import { isString } from '@qubit-ltd/type-detect';
+
 /**
  * 验证中国固定电话号码的正则表达式
  *
- * - 国内固定电话和传真的格式基本都是带有0的区号+连接符“-”＋电话号码；
+ * - 国内固定电话和传真的格式基本都是带有0的区号+连接符"-"＋电话号码；
  * - 另外还有可能有分机号
  * - 区号有3位、4位，电话号码有7位和8位的
  * - 其它格式的有前面不带0的，或者不带连接符的
- * - 或者分机号前面使用#号的，或者前面加“+86”的等等；
+ * - 或者分机号前面使用#号的，或者前面加"+86"的等等；
  *
  * 参考资料：
  * 1. https://blog.csdn.net/lyhjava/article/details/52316438
@@ -43,7 +45,7 @@ const ChinaPhoneRule = {
    * @author 胡海星
    */
   isValid(phone) {
-    return ((typeof phone === 'string') || (phone instanceof String))
+    return isString(phone)
         && (phone.length !== 0)
         && PHONE_REGEXP.test(phone);
   },

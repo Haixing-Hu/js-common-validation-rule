@@ -6,6 +6,7 @@
 //    All rights reserved.
 //
 ////////////////////////////////////////////////////////////////////////////////
+import { isString } from '@qubit-ltd/type-detect';
 
 /**
  * 验证字符串是否表示合法的时间戳的正则表达式。
@@ -43,7 +44,7 @@ const TimestampRule = {
    * @author 胡海星
    */
   isValid(timestamp) {
-    if (((typeof timestamp === 'string') || (timestamp instanceof String))) {
+    if (isString(timestamp)) {
       return TIMESTAMP_REGEXP.test(timestamp);
     } else {
       return false;

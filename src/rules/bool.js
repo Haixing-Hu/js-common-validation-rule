@@ -6,6 +6,7 @@
 //    All rights reserved.
 //
 ////////////////////////////////////////////////////////////////////////////////
+import { isBoolean, isString } from '@qubit-ltd/type-detect';
 
 /**
  * 布尔值验证规则。
@@ -27,10 +28,9 @@ const BoolRule = {
    * @author 胡海星
    */
   isValid(value) {
-    const type = typeof value;
-    if ((type === 'boolean') || (value instanceof Boolean)) {
+    if (isBoolean(value)) {
       return true;
-    } else if ((type === 'string') || (value instanceof String)) {
+    } else if (isString(value)) {
       const val = value.trim().toLowerCase();
       return (val === 'true' || val === 'false');
     } else {

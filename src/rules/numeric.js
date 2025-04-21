@@ -6,6 +6,7 @@
 //    All rights reserved.
 //
 ////////////////////////////////////////////////////////////////////////////////
+import { isBigInt } from '@qubit-ltd/type-detect';
 import NumberRule from './number';
 
 /**
@@ -37,7 +38,7 @@ const NumericRule = {
    * @param {any} value
    *    待测试的值，前后允许有空白字符。
    * @param {object} option
-   *    测试选项，表示是否将 ‘NaN’ 或 ‘Infinity’ 也看做是合法的浮点数字符串表示。
+   *    测试选项，表示是否将 'NaN' 或 'Infinity' 也看做是合法的浮点数字符串表示。
    *    此选项对象可以包含下列属性：
    *    - allowNaN: 是否将字符串 'NaN' 也看做是一个表示浮点数的合法字符串；默认值为`false`。
    *    - allowInfinity: 是否将字符串 'Infinity' （注意大小写）也看做是一个表示浮点数的合法字符串；默认值为`false`。
@@ -46,7 +47,7 @@ const NumericRule = {
    * @author 胡海星
    */
   isValid(value, option = NumberRule.DEFAULT_OPTION) {
-    if (typeof value === 'bigint') {
+    if (isBigInt(value)) {
       return true;
     }
     return NumberRule.isValid(value, option);

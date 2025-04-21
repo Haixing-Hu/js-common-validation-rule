@@ -6,6 +6,7 @@
 //    All rights reserved.
 //
 ////////////////////////////////////////////////////////////////////////////////
+import { isString } from '@qubit-ltd/type-detect';
 
 /**
  * 验证字符串是否是合法的密码的正则表达式。
@@ -57,7 +58,7 @@ const PasswordRule = {
    * @author 胡海星
    */
   isValid(value) {
-    if ((typeof value === 'string') || (value instanceof String)) {
+    if (isString(value)) {
       return (value.length >= this.minLength)
         && (value.length <= this.maxLength)
         && PASSWORD_REGEXP.test(value);

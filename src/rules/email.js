@@ -7,6 +7,7 @@
 //
 ////////////////////////////////////////////////////////////////////////////////
 import EmailValidator from 'email-validator';
+import { isString } from '@qubit-ltd/type-detect';
 
 /**
  * 电子邮件地址验证规则。
@@ -26,7 +27,7 @@ const EmailRule = {
    * @author 胡海星
    */
   isValid(email) {
-    return ((typeof email === 'string') || (email instanceof String))
+    return isString(email)
         && EmailValidator.validate(email.trim());
   },
 };

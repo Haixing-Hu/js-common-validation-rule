@@ -6,6 +6,7 @@
 //    All rights reserved.
 //
 ////////////////////////////////////////////////////////////////////////////////
+import { isString } from '@qubit-ltd/type-detect';
 
 /**
  * 验证中国手机号码的正则表达式
@@ -48,7 +49,7 @@ const ChinaMobileRule = {
    * @author 胡海星
    */
   isValid(mobile) {
-    return ((typeof mobile === 'string') || (mobile instanceof String))
+    return isString(mobile)
         && (mobile.length !== 0)
         && MOBILE_REGEXP.test(mobile);
   },
