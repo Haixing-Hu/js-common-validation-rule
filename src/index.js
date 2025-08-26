@@ -18,6 +18,8 @@ import IntegerRule from './rules/integer';
 import LocalDateRule from './rules/local-date';
 import LocalDateTimeRule from './rules/local-date-time';
 import LocalTimeRule from './rules/local-time';
+import LowercaseHyphenRule from './rules/lowercase-hyphen';
+import LowercaseUnderscoreRule from './rules/lowercase-underscore';
 import NumberRule from './rules/number';
 import NumericRule from './rules/numeric';
 import OtherCredentialRule from './rules/other-credential';
@@ -25,6 +27,7 @@ import PasswordRule from './rules/password';
 import PersonNameRule from './rules/person-name';
 import TimestampRule from './rules/timestamp';
 import UppercaseAlphaNumberRule from './rules/uppercase-alpha-number';
+import UppercaseUnderscoreRule from './rules/uppercase-underscore';
 import UrlRule from './rules/url';
 import UsernameRule from './rules/username';
 import ValidationResult from './validation-result';
@@ -43,6 +46,8 @@ export {
   LocalDateRule,
   LocalDateTimeRule,
   LocalTimeRule,
+  LowercaseHyphenRule,
+  LowercaseUnderscoreRule,
   NumberRule,
   NumericRule,
   OtherCredentialRule,
@@ -50,6 +55,7 @@ export {
   PersonNameRule,
   TimestampRule,
   UppercaseAlphaNumberRule,
+  UppercaseUnderscoreRule,
   UrlRule,
   UsernameRule,
   ValidationResult,
