@@ -37,7 +37,7 @@ const UrlRule = {
       try {
         uri.checkWebURL(u);
         return true;
-      } catch (URIError) {
+      } catch {
         return false;
       }
     } else {
