@@ -1,6 +1,6 @@
 {
   "name": "@qubit-ltd/common-validation-rule",
-  "version": "1.6.4",
+  "version": "1.6.5",
   "description": "A JavaScript ES6 library for common validation rules",
   "author": "Haixing Hu (starfish.hu@gmail.com)",
   "license": "Apache-2.0",
@@ -47,8 +47,8 @@
     "deploy:all": "npm run deploy && npm publish --registry='https://registry.npmjs.org/' --access public"
   },
   "peerDependencies": {
-    "@babel/runtime": "^7.28.3",
-    "@qubit-ltd/type-detect": "^2.2.1"
+    "@babel/runtime": "^7.26.0",
+    "@qubit-ltd/type-detect": "^2.2.3"
   },
   "dependencies": {
     "email-validator": "^2.0.4",

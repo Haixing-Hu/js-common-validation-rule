@@ -2387,8 +2387,8 @@ __metadata:
     typescript: "npm:^5.9.2"
     vue-eslint-parser: "npm:^10.2.0"
   peerDependencies:
-    "@babel/runtime": ^7.28.3
-    "@qubit-ltd/type-detect": ^2.2.1
+    "@babel/runtime": ^7.26.0
+    "@qubit-ltd/type-detect": ^2.2.3
   languageName: unknown
   linkType: soft
 
